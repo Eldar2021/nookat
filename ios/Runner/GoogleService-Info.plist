@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>90911443493-e4niisbucj74jaenh42dmk8k17q68a7h.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.90911443493-e4niisbucj74jaenh42dmk8k17q68a7h</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>90911443493-s5eol34chgviri1d9fm95k45uca0o079.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAq_1588H9DtPZbpBBRZnsUGRN5SqpX08g</string>
+	<key>GCM_SENDER_ID</key>
+	<string>90911443493</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.nookat</string>
+	<key>PROJECT_ID</key>
+	<string>nookat-85233</string>
+	<key>STORAGE_BUCKET</key>
+	<string>nookat-85233.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:90911443493:ios:a502ebc7c98d8f63a60dcc</string>
+</dict>
+</plist>

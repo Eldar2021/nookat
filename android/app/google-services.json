@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "90911443493",
+    "project_id": "nookat-85233",
+    "storage_bucket": "nookat-85233.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:90911443493:android:739b230668f0591aa60dcc",
+        "android_client_info": {
+          "package_name": "com.example.nookat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "90911443493-s5eol34chgviri1d9fm95k45uca0o079.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.nookat",
+            "certificate_hash": "b61141420a466b3b6c6a99dea800e7c60f18e835"
+          }
+        },
+        {
+          "client_id": "90911443493-r7lds8k8l4g8170lqpp3eqo9dog2kal8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB7nx9FezwtKNADWu9-5zeL5sR7zj0qBus"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "90911443493-r7lds8k8l4g8170lqpp3eqo9dog2kal8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
