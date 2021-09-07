@@ -204,16 +204,6 @@ class AddAdvertScreen extends StatelessWidget {
               ],
             ),
           ),
-          // ElevatedButton(
-          //   child: Text("жиберүү"),
-          //   onPressed: () {
-          //     if (_formKey.currentState!.validate()) {
-          //       Get.to(CreditCard());
-          //     } else {
-          //       print("forn inValid");
-          //     }
-          //   },
-          // ),
         ],
       ),
     );

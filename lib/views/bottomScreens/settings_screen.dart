@@ -1,13 +1,11 @@
-import 'dart:ui';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:nookat/constants/color.dart';
 import 'package:nookat/constants/text_style.dart';
 import 'package:nookat/controler/settings_controller.dart';
 import 'package:nookat/service/theme_service.dart';
+import 'package:nookat/widgets/setting_widget.dart';
 
 class SettingsScreen extends StatelessWidget {
   final SettingsController settingsController = Get.find();
@@ -176,39 +174,3 @@ class SettingsScreen extends StatelessWidget {
   }
 }
 
-class MySettingsContainer extends StatelessWidget {
-  const MySettingsContainer({
-    Key? key,
-    required this.child,
-    required this.padding,
-    required this.onTab,
-  }) : super(key: key);
-
-  final Widget child;
-  final EdgeInsetsGeometry padding;
-  final Function onTab;
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        onTab();
-      },
-      child: Container(
-        margin: const EdgeInsets.all(10.0),
-        padding: padding,
-        decoration: BoxDecoration(
-          color: MyColors.whiteColor,
-          borderRadius: BorderRadius.circular(10.0),
-          boxShadow: [
-            BoxShadow(
-              color: MyColors.boxShadowColor,
-              offset: Offset(3, 1),
-            ),
-          ],
-        ),
-        child: child,
-      ),
-    );
-  }
-}
