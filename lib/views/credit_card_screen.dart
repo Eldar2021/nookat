@@ -103,9 +103,7 @@ class _CreditCardState extends State<CreditCard> {
                     color: const Color(0xff1b447b),
                     onPressed: () {
                       if (formKey.currentState!.validate()) {
-                        addAdvertController.addAdvert();
-                        Get.defaultDialog(title: "Рахмат!!!");
-                        Get.back();
+                        addAdvertController.toFire();
                       } else {
                         print('invalid!');
                       }

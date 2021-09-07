@@ -2,6 +2,7 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:multi_image_picker/multi_image_picker.dart';
+import 'package:nookat/controler/home_coltroller.dart';
 import 'package:nookat/models/advert.dart';
 import 'package:nookat/serviceFire/add_to_firebase.dart';
 
@@ -48,8 +49,6 @@ class AddAdvertController extends GetxController {
     } on Exception catch (e) {
       _error = e.toString();
     }
-    //if (!mounted) return;
-
     images.value = resultList1;
     error.value = _error;
     update();
@@ -80,7 +79,25 @@ class AddAdvertController extends GetxController {
     return photos;
   }
 
+  Future<void> toFire()async {
+    HomeController homeController = Get.find();
+    Get.defaultDialog(
+        barrierDismissible: false,
+        onWillPop: () async=>false,
+        content: Container(
+          child: Center(
+            child: CircularProgressIndicator(),
+          ),
+        )
+    );
+    await addAdvert();
+    Get.back();
+    homeController.backPage();
+    Get.back();
+  }
+
   Future<void> addAdvert() async {
+   //await Get.to(HomePage());
     await uploadImages(images);
     if (category.value != "") {
       if (category.value == "Кабар") {
@@ -139,6 +156,5 @@ class AddAdvertController extends GetxController {
     file.value = "";
     resultList1.value = [];
     update();
-    Get.defaultDialog(title: "Рахмат");
   }
 }

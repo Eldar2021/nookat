@@ -11,7 +11,6 @@ import 'package:nookat/mainscreen.dart';
 import 'package:nookat/service/theme_service.dart';
 import 'package:nookat/service/translations.dart';
 import 'controler/settings_controller.dart';
-import 'not.dart';
 
 Future<void> _messageHandler(RemoteMessage message) async {
   print('background message ${message.notification!.body}');
@@ -52,7 +51,7 @@ class MyApp extends StatelessWidget {
       translations: LocalizationService(),
       // home: Not(),
       home: AnimatedSplashScreen(
-        duration: 2000,
+        duration: 100,
         splash: "assets/image/logo.png",
         nextScreen: MainScreen(),
         splashTransition: SplashTransition.sizeTransition,

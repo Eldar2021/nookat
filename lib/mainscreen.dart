@@ -63,14 +63,6 @@ class _MainScreenState extends State<MainScreen> {
               ),
             ),
             Container(
-              color: MyColors.primaryColor,
-              child: MyCategoryListStreamBuilder(
-                function: (value) {
-                  Get.to(CategoryDetailStream(category: '$value'));
-                },
-              ),
-            ),
-            Container(
               margin: const EdgeInsets.only(top: 5, bottom: 5),
               padding: const EdgeInsets.all(10),
               width: double.infinity,
@@ -97,10 +89,18 @@ class _MainScreenState extends State<MainScreen> {
               ),
             ),
             Container(
+              color: MyColors.primaryColor,
+              child: MyCategoryListStreamBuilder(
+                function: (value) {
+                  Get.to(CategoryDetailStream(category: '$value'));
+                },
+              ),
+            ),
+            Container(
               margin: const EdgeInsets.only(top: 5, bottom: 5),
               padding: const EdgeInsets.all(10),
               width: double.infinity,
-              color: MyColors.primaryColor,
+              color: MyColors.whatsappColor,
               child: GestureDetector(
                 onTap: () {
                   Get.to(AdminControlScreen());
