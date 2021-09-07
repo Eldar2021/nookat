@@ -67,5 +67,4 @@ class AddCategoryScreen extends StatelessWidget {
     }
   }
 
-
 }

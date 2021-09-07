@@ -170,7 +170,7 @@ class AddAdvertScreen extends StatelessWidget {
                     image: "assets/image/elsom.png",
                     function: () {
                       if (_formKey.currentState!.validate()) {
-                        Get.to(CreditCard());
+                        Get.to(CreditCardScreen());
                       } else {
                         Get.defaultDialog(title: "Форманы толук толтуруңуз");
                       }
@@ -182,7 +182,7 @@ class AddAdvertScreen extends StatelessWidget {
                     image: "assets/image/optima24.png",
                     function: () {
                       if (_formKey.currentState!.validate()) {
-                        Get.to(CreditCard());
+                        Get.to(CreditCardScreen());
                       } else {
                         Get.defaultDialog(title: "Форманы толук толтуруңуз");
                       }
@@ -194,7 +194,7 @@ class AddAdvertScreen extends StatelessWidget {
                     image: "assets/image/elcart.png",
                     function: () {
                       if (_formKey.currentState!.validate()) {
-                        Get.to(CreditCard());
+                        Get.to(CreditCardScreen());
                       } else {
                         Get.defaultDialog(title: "Форманы толук толтуруңуз");
                       }

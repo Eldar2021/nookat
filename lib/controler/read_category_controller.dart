@@ -9,5 +9,4 @@ class ReadController extends GetxController {
     update();
   }
 
-
 }

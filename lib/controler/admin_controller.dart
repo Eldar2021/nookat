@@ -2,6 +2,7 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:multi_image_picker/multi_image_picker.dart';
+import 'package:nookat/controler/home_coltroller.dart';
 import 'package:nookat/models/advert.dart';
 import 'package:nookat/serviceFire/add_to_firebase.dart';
 
@@ -53,6 +54,23 @@ class AddAdvertFromAdminController extends GetxController {
     images.value = resultList1;
     error.value = _error;
     update();
+  }
+
+  Future<void> toFire()async {
+    HomeController homeController = Get.find();
+    Get.defaultDialog(
+        barrierDismissible: false,
+        onWillPop: () async=>false,
+        content: Container(
+          child: Center(
+            child: CircularProgressIndicator(),
+          ),
+        )
+    );
+    await addAdvert();
+    Get.back();
+    homeController.backPage();
+    Get.back();
   }
 
   Future<List<String>> uploadImages(List<Asset> _images) async {
@@ -141,7 +159,6 @@ class AddAdvertFromAdminController extends GetxController {
     update();
     Get.defaultDialog(title: "Рахмат");
   }
-
 
 }
 

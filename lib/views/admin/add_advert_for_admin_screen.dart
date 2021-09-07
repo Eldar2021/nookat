@@ -153,7 +153,7 @@ class AddAdvertForAdminScreen extends StatelessWidget {
                     child: Text("жиберүү"),
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
-                        addAdvertFromAdminController.addAdvert();
+                        addAdvertFromAdminController.toFire();
                       } else {
                         print("forn inValid");
                       }

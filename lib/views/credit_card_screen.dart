@@ -1,107 +1,90 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_credit_card/credit_card_form.dart';
-import 'package:flutter_credit_card/credit_card_model.dart';
 import 'package:flutter_credit_card/credit_card_widget.dart';
 import 'package:get/get.dart';
+import 'package:nookat/constants/color.dart';
 import 'package:nookat/controler/ad_advert_cotroller.dart';
+import 'package:nookat/controler/credit_card_controller.dart';
 
-class CreditCard extends StatefulWidget {
-  const CreditCard({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  _CreditCardState createState() => _CreditCardState();
-}
-
-class _CreditCardState extends State<CreditCard> {
+class CreditCardScreen extends StatelessWidget {
   final AddAdvertController addAdvertController = Get.find();
-
-  String cardNumber = '';
-  String expiryDate = '';
-  String cardHolderName = '';
-  String cvvCode = '';
-  bool isCvvFocused = false;
-  GlobalKey<FormState> formKey = GlobalKey<FormState>();
-
-  void onCreditCardModelChange(CreditCardModel creditCardModel) {
-    setState(() {
-      cardNumber = creditCardModel.cardNumber;
-      expiryDate = creditCardModel.expiryDate;
-      cardHolderName = creditCardModel.cardHolderName;
-      cvvCode = creditCardModel.cvvCode;
-      isCvvFocused = creditCardModel.isCvvFocused;
-    });
-  }
+  final CreditCardController creditCardController = Get.put(CreditCardController());
+  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: MyColors.whiteColor,
       body: GestureDetector(
-        onTap:()=> FocusScope.of(context).unfocus(),
+        onTap: () => FocusScope.of(context).unfocus(),
         child: SingleChildScrollView(
           child: Column(
             children: <Widget>[
-              CreditCardWidget(
-                cardNumber: cardNumber,
-                expiryDate: expiryDate,
-                cardHolderName: cardHolderName,
-                cvvCode: cvvCode,
-                showBackView: isCvvFocused,
-                obscureCardNumber: true,
-                obscureCardCvv: true,
+              Obx(
+                () => CreditCardWidget(
+                  cardNumber: creditCardController.cardNumber.value,
+                  expiryDate: creditCardController.expiryDate.value,
+                  cardHolderName: creditCardController.cardHolderName.value,
+                  cvvCode: creditCardController.cvvCode.value,
+                  showBackView: creditCardController.isCvvFocused.value,
+                  obscureCardNumber: true,
+                  obscureCardCvv: true,
+                ),
               ),
               Column(
                 children: [
-                  CreditCardForm(
-                    formKey: formKey,
-                    cardNumber: cardNumber,
-                    expiryDate: expiryDate,
-                    cardHolderName: cardHolderName,
-                    cvvCode: cvvCode,
-                    themeColor: Colors.tealAccent,
-                    onCreditCardModelChange: onCreditCardModelChange,
-                    obscureCvv: true,
-                    obscureNumber: true,
-                    cardNumberDecoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: 'Number',
-                      hintText: 'XXXX XXXX XXXX XXXX',
-                    ),
-                    expiryDateDecoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: 'Expired Date',
-                      hintText: 'XX/XX',
-                    ),
-                    cvvCodeDecoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: 'CVV',
-                      hintText: 'XXX',
-                    ),
-                    cardHolderDecoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: 'Card Holder Name',
+                  Container(
+                    child: CreditCardForm(
+                      formKey: formKey,
+                      cardNumber: creditCardController.cardNumber.value,
+                      expiryDate: creditCardController.expiryDate.value,
+                      cardHolderName: creditCardController.cardHolderName.value,
+                      cvvCode: creditCardController.cvvCode.value,
+                      themeColor: MyColors.whiteColor,
+                      onCreditCardModelChange: creditCardController.onCreditCardModelChange,
+                      obscureCvv: true,
+                      obscureNumber: true,
+                      cardNumberDecoration: const InputDecoration(
+                        border: OutlineInputBorder(),
+                        labelText: 'Number',
+                        hintText: 'XXXX XXXX XXXX XXXX',
+                      ),
+                      expiryDateDecoration: const InputDecoration(
+                        border: OutlineInputBorder(),
+                        labelText: 'Expired Date',
+                        hintText: 'XX/XX',
+                      ),
+                      cvvCodeDecoration: const InputDecoration(
+                        border: OutlineInputBorder(),
+                        labelText: 'CVV',
+                        hintText: 'XXX',
+                      ),
+                      cardHolderDecoration: const InputDecoration(
+                        border: OutlineInputBorder(),
+                        labelText: 'Card Holder Name',
+                      ),
                     ),
                   ),
                   SizedBox(
                     height: 10,
                   ),
-                  RaisedButton(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8.0),
-                    ),
+                  InkWell(
                     child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(8.0),
+                        color: const Color(0xff1b447b),
+                      ),
                       margin: const EdgeInsets.all(8),
+                      padding: const EdgeInsets.all(8),
                       child: const Text(
-                        'Validate',
-                        style: TextStyle(
+                        'Жиберүү',
+                        style: const TextStyle(
                           color: Colors.white,
                           fontSize: 18,
                         ),
                       ),
                     ),
-                    color: const Color(0xff1b447b),
-                    onPressed: () {
+                    onTap: () {
                       if (formKey.currentState!.validate()) {
                         addAdvertController.toFire();
                       } else {
