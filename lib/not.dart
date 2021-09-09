@@ -2,6 +2,9 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:overlay_support/overlay_support.dart';
+//PROMPT_COMMAND=echo
+//PROMPT_COMMAND=echo
+//open ~/.zshrc
 
 Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
   print("Handling a background message: ${message.messageId}");
@@ -147,6 +150,12 @@ class _NotState extends State<Not> {
                 )
               : Container(),
         ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () async{
+
+        },
+        child: Icon(Icons.publish_sharp),
       ),
     );
   }

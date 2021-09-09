@@ -8,6 +8,7 @@ import 'package:get_storage/get_storage.dart';
 import 'package:nookat/constants/color.dart';
 import 'package:nookat/constants/theme.dart';
 import 'package:nookat/mainscreen.dart';
+import 'package:nookat/not.dart';
 import 'package:nookat/service/theme_service.dart';
 import 'package:nookat/service/translations.dart';
 import 'controler/settings_controller.dart';
