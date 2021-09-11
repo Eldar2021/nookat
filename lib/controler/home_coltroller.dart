@@ -41,18 +41,17 @@ class HomeController extends GetxController {
   late FirebaseMessaging messaging;
 
   @override
-  void onInit() {
+  void onInit() async{
     print("heeey i am Eldar--------------------------");
     messaging = FirebaseMessaging.instance;
-    messaging.getToken().then((value) {
-      print("token $value");
-    });
+    await messaging.subscribeToTopic("topics-all");
+    print("heeey i am topic--------------------------");
     FirebaseMessaging.onMessage.listen((RemoteMessage event) {
       print("message recieved");
       print(event.notification!.body);
       Get.defaultDialog(
         content: AlertDialog(
-          title: Text("Notification"),
+          title: Text(event.notification!.title!),
           content: Text(event.notification!.body!),
           actions: [
             TextButton(

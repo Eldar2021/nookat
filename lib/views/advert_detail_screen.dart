@@ -42,19 +42,27 @@ class AdvertDetailScreen extends StatelessWidget {
               advert.youtube != ""
                   ? ClipRRect(
                       borderRadius: BorderRadius.circular(8.0),
-                      child: YoutubePlayer(
-                        controller: YoutubePlayerController(
-                          initialVideoId: "${advert.youtube}",
-                          flags: YoutubePlayerFlags(
-                            controlsVisibleAtStart: false,
-                            autoPlay: false,
-                            mute: false,
+                      child: YoutubePlayerBuilder(
+                        player: YoutubePlayer(
+                          controller: YoutubePlayerController(
+                            initialVideoId: "${advert.youtube}",
+                            flags: YoutubePlayerFlags(
+                              controlsVisibleAtStart: true,
+                              autoPlay: false,
+                              mute: false,
+                            ),
                           ),
+                          showVideoProgressIndicator: true,
                         ),
-                        showVideoProgressIndicator: true,
+                        builder: (context, player) {
+                          return Container(
+                            child: player,
+                          );
+                        },
                       ),
                     )
                   : Container(),
+              SizedBox(height: 70),
             ],
           ),
         ),

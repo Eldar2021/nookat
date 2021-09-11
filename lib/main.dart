@@ -1,4 +1,5 @@
 import 'package:animated_splash_screen/animated_splash_screen.dart';
+import 'package:cloud_functions/cloud_functions.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/cupertino.dart';
@@ -8,7 +9,6 @@ import 'package:get_storage/get_storage.dart';
 import 'package:nookat/constants/color.dart';
 import 'package:nookat/constants/theme.dart';
 import 'package:nookat/mainscreen.dart';
-import 'package:nookat/not.dart';
 import 'package:nookat/service/theme_service.dart';
 import 'package:nookat/service/translations.dart';
 import 'controler/settings_controller.dart';
@@ -21,6 +21,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await GetStorage.init();
   await Firebase.initializeApp();
+  FirebaseFunctions.instance.useFunctionsEmulator('localhost', 5001);
   FirebaseMessaging.onBackgroundMessage(_messageHandler);
   runApp(MyApp());
 }
@@ -50,7 +51,6 @@ class MyApp extends StatelessWidget {
                   ? Locale('ru', 'RU')
                   : Locale('kg', 'KG'),
       translations: LocalizationService(),
-      // home: Not(),
       home: AnimatedSplashScreen(
         duration: 100,
         splash: "assets/image/logo.png",
