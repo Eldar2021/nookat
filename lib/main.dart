@@ -8,13 +8,21 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:nookat/constants/color.dart';
 import 'package:nookat/constants/theme.dart';
+import 'package:nookat/controler/first_controller.dart';
 import 'package:nookat/mainscreen.dart';
 import 'package:nookat/service/theme_service.dart';
 import 'package:nookat/service/translations.dart';
+import 'package:nookat/views/first/first_screen.dart';
 import 'controler/settings_controller.dart';
 
 Future<void> _messageHandler(RemoteMessage message) async {
   print('background message ${message.notification!.body}');
+  Get.snackbar(
+    message.notification!.title!,
+    message.notification!.body!,
+    colorText: const Color(0xff000000),
+    backgroundColor: MyColors.whiteColor,
+  );
 }
 
 void main() async {
@@ -28,6 +36,7 @@ void main() async {
 
 class MyApp extends StatelessWidget {
   final SettingsController settingsController = Get.put(SettingsController());
+  final FirstController firstController = Get.put(FirstController());
 
   @override
   Widget build(BuildContext context) {
@@ -54,7 +63,9 @@ class MyApp extends StatelessWidget {
       home: AnimatedSplashScreen(
         duration: 100,
         splash: "assets/image/logo.png",
-        nextScreen: MainScreen(),
+        nextScreen: firstController.firstStorage.read(firstController.firstKey) == null
+            ? FirstScreen()
+            : MainScreen(),
         splashTransition: SplashTransition.sizeTransition,
         backgroundColor: MyColors.whiteColor,
       ),

@@ -16,6 +16,13 @@ class HomePage extends StatelessWidget {
     return Column(
       children: [
         Container(
+          margin: const EdgeInsets.only(top: 25, bottom: 15),
+          child: Text(
+            "Шашылыш сатуулар".tr,
+            style: MyTextStyle.homeTheme,
+          ),
+        ),
+        Container(
           child: AdvertSteamBuilder(stream: urgent),
         ),
         Container(

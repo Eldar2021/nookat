@@ -1,24 +1,26 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:get/get.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:nookat/constants/color.dart';
 import 'package:nookat/constants/text_style.dart';
 import 'package:nookat/controler/settings_controller.dart';
-import 'package:nookat/service/theme_service.dart';
+import 'package:get/get.dart';
+import 'package:nookat/views/first/first1_screen.dart';
 import 'package:nookat/widgets/setting_widget.dart';
 
-class SettingsScreen extends StatelessWidget {
-  final SettingsController settingsController = Get.find();
+class FirstScreen extends StatelessWidget {
+  final SettingsController settingsController = Get.put(SettingsController());
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+    return Scaffold(
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          Text(
-            "Тил тандаңыз".tr,
-            style: MyTextStyle.settingTextStyle,
+          const SizedBox(height: 20),
+          Container(
+            child: Image.asset("assets/image/elcart.png")
           ),
           MySettingsContainer(
             onTab: () {
@@ -48,6 +50,7 @@ class SettingsScreen extends StatelessWidget {
               ],
             ),
           ),
+          const SizedBox(height: 20),
           MySettingsContainer(
             onTab: () {
               settingsController.uz();
@@ -76,6 +79,7 @@ class SettingsScreen extends StatelessWidget {
               ],
             ),
           ),
+          const SizedBox(height: 20),
           MySettingsContainer(
             onTab: () {
               settingsController.ru();
@@ -104,75 +108,30 @@ class SettingsScreen extends StatelessWidget {
               ],
             ),
           ),
-          Text(
-            "Тема тандаңыз".tr,
-            style: MyTextStyle.settingTextStyle,
-          ),
-          Row(
-            children: [
-              Expanded(
-                child: MySettingsContainer(
-                  child: Image.asset(
-                    "assets/image/lg.png",
-                    width: Get.width / 3,
-                    height: Get.width / 2,
-                    fit: BoxFit.cover,
-                  ),
-                  padding: const EdgeInsets.all(10),
-                  onTab: () {
-                    ThemeService().lightTheme();
-                  },
+          const SizedBox(height: 20),
+          InkWell(
+            onTap: (){
+              Get.off(First1Screen());
+            },
+            child: Container(
+              padding: const EdgeInsets.all(10),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10.0),
+                color: MyColors.myRed,
+              ),
+              child: Text(
+                "Далее",
+                style: TextStyle(
+                  color: MyColors.whiteColor,
+                  fontSize: 24,
+                  fontWeight: FontWeight.w600,
                 ),
               ),
-              SizedBox(width: 10),
-              Expanded(
-                child: MySettingsContainer(
-                  child: Image.asset(
-                    "assets/image/dr.png",
-                    width: Get.width / 3,
-                    height: Get.width / 2,
-                    fit: BoxFit.cover,
-                  ),
-                  padding: EdgeInsets.all(10),
-                  onTab: () {
-                    ThemeService().darkTheme();
-                  },
-                ),
-              ),
-            ],
-          ),
-          Text(
-            "Билдирүү эскертмеси".tr,
-            style: MyTextStyle.settingTextStyle,
-          ),
-          MySettingsContainer(
-            padding: const EdgeInsets.all(10),
-            onTab: () {},
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  "Билдирүүнү иштетүү".tr,
-                  style: MyTextStyle.settingItemTextStyle,
-                ),
-                Obx(() {
-                  return Switch(
-                    value: settingsController.notification.value,
-                    onChanged: (value) {
-                      settingsController.notification.value = value;
-                      settingsController.changedNot(settingsController.notification.value);
-                      print(settingsController.notification.value);
-                    },
-                    activeTrackColor: Colors.lightGreenAccent,
-                    activeColor: Colors.green,
-                  );
-                }),
-              ],
             ),
-          )
+          ),
+          const SizedBox(height: 20),
         ],
       ),
     );
   }
 }
-

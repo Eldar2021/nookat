@@ -15,30 +15,10 @@ import 'package:nookat/views/category_detail.dart';
 import 'package:nookat/views/contact_to_admin.dart';
 import 'package:nookat/widgets/drawer_widget.dart';
 
-class MainScreen extends StatefulWidget {
-  const MainScreen({Key? key}) : super(key: key);
-
-  @override
-  _MainScreenState createState() => _MainScreenState();
-}
-
-class _MainScreenState extends State<MainScreen> {
+class MainScreen extends StatelessWidget {
   final HomeController controller = Get.put(HomeController());
-  ScrollController _scrollController = ScrollController();
 
-  @override
-  void initState() {
-    super.initState();
-    controller.handleScroll(_scrollController);
-  }
-
-  @override
-  void dispose() {
-    _scrollController.removeListener(() {});
-    super.dispose();
-  }
-
-  List<Widget> pages = [
+  final List<Widget> pages = [
     NewsScreen(),
     AddAdvertScreen(),
     InformationScreen(),
@@ -124,10 +104,10 @@ class _MainScreenState extends State<MainScreen> {
         ),
       ),
       body: GestureDetector(
-        onTap:()=> FocusScope.of(context).unfocus(),
+        onTap: () => FocusScope.of(context).unfocus(),
         child: SingleChildScrollView(
           physics: BouncingScrollPhysics(),
-          controller: _scrollController,
+          controller: controller.scrollController,
           child: Padding(
             padding: const EdgeInsets.only(top: 10, left: 7.0, right: 7.0, bottom: 70),
             child: Obx(() => pages[controller.page.value]),

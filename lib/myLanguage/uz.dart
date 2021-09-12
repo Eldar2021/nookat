@@ -1,4 +1,22 @@
 const Map<String, String> uzUZ = {
+  'Карт ээсинин аты': 'Karta egasining ismi',
+  'Жарамдуулук мөөнөтү': 'Kartaning muddati',
+  "Картанын Номери": "Karta raqami",
+  'Жиберүү': 'Yuborish',
+  "Администрация": "Ma'muriyat",
+  "Администрация менен байланышуу": "Ma'muriyat bilan bog'laning",
+  "Сүрөт жүктөө үчүн камераны басыңыз (манилүү эмес!)":
+      "Rasm yuklash uchun kamerani bosing (muhim emas!)",
+  "Кененирээк маалымат жазыңыз (манилүү)": "Batafsil yozing (muhim)",
+  "Кененирээк": "Batafsil",
+  "Жарнамаңызга тема бериңиз М: Автоунаа сатылат (манилүү)":
+      "E'loningiz uchun mavzu yuboring M: Avtomobil savdosi (muhim)",
+  "Өзүңүздүн атыңызды жазыңыз": "Ismingizni yozing",
+  "Жарнаманын темасы": "Sarlavha",
+  "Атыңыз": "Ismingiz",
+  "Жарнама берүү": "Reklama yuborish",
+  "Колдонуу инструкциясы": "Qo'llanish bo'yicha ko'rsatma",
+  "Шашылыш сатуулар": "Zudlik bilan sotishlar",
   'Жарнама': 'Reklama',
   'Кабарлар': "Yangiliklar",
   'Башка жарнамалар': "Boshqa e'lonlar",
@@ -7,8 +25,8 @@ const Map<String, String> uzUZ = {
   'Жабуу': "Yoping",
   'Тил тандаңыз': "Tilni tanlang",
   'Тема тандаңыз': "Mavzuni tanlang",
-  'Кабарлоо': "Bildirishnoma",
-  'Кабарлоону иштет': "Bildirishnomani yoqish",
+  'Билдирүү эскертмеси': "Bildirishnoma",
+  'Билдирүүнү иштетүү': "Bildirishnomani yoqish",
   'Тема:': "Mavzu:",
   'Дата:': "e'lon sanasi:",
   'Аты:': "Ismi:",
@@ -21,5 +39,21 @@ const Map<String, String> uzUZ = {
   'Whatsapp:': "Whatsapp:",
   'Telegram:': "Telegram:",
   'Веб сайт:': "Veb -sayt:",
-  '   Администрация:': "   Ma'muriyat:",
+  'Администрация:': "Ma'muriyat:",
+  "Адресиңиз": "Sizning manzilingiz",
+  "Телефон номер": "Telefon raqami",
+  "Whatsapp номер": "Whatsapp raqami",
+  "Youtube ссылка": "Youtube havolasi",
+  "Дата кириңиз": "Sanani kiriting",
+  "Кошумча категория": "Qo'shimcha toifalar",
+  "Жогорудагы 'Атыңыз', 'Жарнаманын темасы', 'Кененирээк' формаларын толук толтуруңуз":
+      "Yuqoridagi 'Ism', 'E'lon mavzusi', 'Tafsilotlar' shakllarini to'ldiring.",
+  "Толом жургузуу учун бирин танданызы": "To'lovni amalga oshirish uchun birini tanlang",
+  "Эгер Кошумча категория кирсениз анда жогорудагы Каабар жана Шашылыш сатуу категириялары өчүрүлөт да сиз жазган категорияда кетет":
+      "Agar siz Qoshimcha toifasiga kirsangiz, yuqoridagi Kaabar va Shoshilinch savdo toifalari ochiriladi va siz yozgan toifaga otkaziladi.",
+  "Эгер веб сайтыңыз болсо анан ссылкасын жазаңыз": "Agar veb -saytingiz bo'lsa, havolani yozing",
+  "Эгер ютубтады видеоңуз болсо аны бул жакка кошуу үчүн https://www.youtube.com/watch?v=u3IkBhDIlfo ссылкасын алып анан юарабардан кийинкисин жазыңыз u3IkBhDIlfo":
+      "Agar sizda g'olib video bo'lsa, https://www.youtube.com/watch?v=u3IkBhDIlfo havolasini bosing va uni bu erga qo'shib qo'ying, keyin yuarabar u3IkBhDIlfo dan keyin quyidagilarni yozing.",
+  "Эгер бир нерсе сатып же кызмат көрсөтүп жатсаңыз анан баасын жазыңыз":
+      "Agar biror narsa sotsangiz yoki xizmat ko'rsatsangiz, narxini yozing",
 };

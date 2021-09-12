@@ -44,14 +44,14 @@ class CreditCardScreen extends StatelessWidget {
                       onCreditCardModelChange: creditCardController.onCreditCardModelChange,
                       obscureCvv: true,
                       obscureNumber: true,
-                      cardNumberDecoration: const InputDecoration(
+                      cardNumberDecoration: InputDecoration(
                         border: OutlineInputBorder(),
-                        labelText: 'Number',
+                        labelText: 'Картанын Номери'.tr,
                         hintText: 'XXXX XXXX XXXX XXXX',
                       ),
-                      expiryDateDecoration: const InputDecoration(
+                      expiryDateDecoration: InputDecoration(
                         border: OutlineInputBorder(),
-                        labelText: 'Expired Date',
+                        labelText: 'Жарамдуулук мөөнөтү'.tr,
                         hintText: 'XX/XX',
                       ),
                       cvvCodeDecoration: const InputDecoration(
@@ -59,9 +59,9 @@ class CreditCardScreen extends StatelessWidget {
                         labelText: 'CVV',
                         hintText: 'XXX',
                       ),
-                      cardHolderDecoration: const InputDecoration(
+                      cardHolderDecoration: InputDecoration(
                         border: OutlineInputBorder(),
-                        labelText: 'Card Holder Name',
+                        labelText: 'Карт ээсинин аты'.tr,
                       ),
                     ),
                   ),
@@ -76,8 +76,8 @@ class CreditCardScreen extends StatelessWidget {
                       ),
                       margin: const EdgeInsets.all(8),
                       padding: const EdgeInsets.all(8),
-                      child: const Text(
-                        'Жиберүү',
+                      child: Text(
+                        'Жиберүү'.tr,
                         style: const TextStyle(
                           color: Colors.white,
                           fontSize: 18,

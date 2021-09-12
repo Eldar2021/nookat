@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'package:nookat/constants/color.dart';
 import 'package:nookat/constants/text_style.dart';
 import 'package:nookat/models/advert.dart';
+import 'package:nookat/service/get_url_service.dart';
 import 'package:nookat/views/advert_detail_screen.dart';
 
 class AdvertSteamBuilder extends StatelessWidget {
@@ -180,10 +181,11 @@ class AdvertCard extends StatelessWidget {
                                 ? IconButton(
                                     icon: SvgPicture.asset(
                                       "assets/icons/viber.svg",
-                                      //color: MyColors.phoneColor,
                                       width: 20,
                                     ),
-                                    onPressed: () {},
+                                    onPressed: () {
+                                      UrlService().launchCaller(advert.phone);
+                                    },
                                   )
                                 : Container(),
                             advert.whatsapp != ""
@@ -192,7 +194,9 @@ class AdvertCard extends StatelessWidget {
                                       "assets/icons/whatsapp.svg",
                                       width: 30,
                                     ),
-                                    onPressed: () {},
+                                    onPressed: () {
+                                      UrlService().launchWhatsApp(advert.whatsapp, "salam");
+                                    },
                                   )
                                 : Container(),
                             advert.telegram != ""
@@ -201,7 +205,9 @@ class AdvertCard extends StatelessWidget {
                                       "assets/icons/telegram.svg",
                                       width: 25,
                                     ),
-                                    onPressed: () {},
+                                    onPressed: () {
+                                      UrlService().launchTelegram(advert.telegram);
+                                    },
                                   )
                                 : Container(),
                           ],

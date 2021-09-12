@@ -35,13 +35,25 @@ class ContactToAdmin extends StatelessWidget {
             ),
             Container(
               margin: const EdgeInsets.all(10),
+              padding: const EdgeInsets.all(10),
               width: double.infinity,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(8.0),
+                color: MyColors.whiteColor,
+                boxShadow: [
+                  BoxShadow(
+                    color: MyColors.boxShadowColor,
+                    offset: const Offset(2, 2),
+                  ),
+                ],
+              ),
               child: ReadMoreText(
                 "Мен Бугун кундогудон ойлуу турам негедимр журогум да толкуп уламМен Бугун кундогудон ойлуу турам негедимр журогум да толкуп уламМен Бугун кундогудон ойлуу турам негедимр журогум да толкуп уламМен Бугун кундогудон ойлуу турам негедимр журогум да толкуп уламМен Бугун кундогудон ойлуу турам негедимр журогум да толкуп уламМен Бугун кундогудон ойлуу турам негедимр журогум да толкуп уламМен Бугун кундогудон ойлуу турам негедимр журогум да толкуп уламМен Бугун кундогудон ойлуу турам негедимр журогум да толкуп улам",
                 colorClickableText: MyColors.myRed,
                 moreStyle: MyTextStyle.moreTextStyle,
                 trimCollapsedText: "Дагы оку".tr,
                 trimExpandedText: "Жабуу".tr,
+                style: MyTextStyle.homeTitle,
               ),
             ),
             StreamBuilder<QuerySnapshot>(
@@ -99,25 +111,30 @@ class ContactToAdmin extends StatelessWidget {
                             ),
                             Container(
                               margin: const EdgeInsets.all(10),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
-                                  SvgPicture.asset(
-                                    "assets/icons/viber.svg",
-                                    color: MyColors.phoneColor,
-                                    width: 20,
-                                  ),
-                                  Text(
-                                    admin.phone,
-                                    maxLines: 3,
-                                    overflow: TextOverflow.ellipsis,
-                                    style: MyTextStyle.settingItemTextStyle,
-                                  ),
-                                  Icon(
-                                    Icons.done_all,
-                                    color: Colors.green,
-                                  ),
-                                ],
+                              child: GestureDetector(
+                                onTap: (){
+                                  UrlService().launchCaller(admin.phone);
+                                },
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    SvgPicture.asset(
+                                      "assets/icons/viber.svg",
+                                      color: MyColors.phoneColor,
+                                      width: 20,
+                                    ),
+                                    Text(
+                                      admin.phone,
+                                      maxLines: 3,
+                                      overflow: TextOverflow.ellipsis,
+                                      style: MyTextStyle.settingItemTextStyle,
+                                    ),
+                                    Icon(
+                                      Icons.done_all,
+                                      color: Colors.green,
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
                             Container(
@@ -149,24 +166,29 @@ class ContactToAdmin extends StatelessWidget {
                             ),
                             Container(
                               margin: const EdgeInsets.all(10),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
-                                  SvgPicture.asset(
-                                    "assets/icons/telegram.svg",
-                                    width: 25,
-                                  ),
-                                  Text(
-                                    admin.telegram,
-                                    maxLines: 3,
-                                    overflow: TextOverflow.ellipsis,
-                                    style: MyTextStyle.settingItemTextStyle,
-                                  ),
-                                  Icon(
-                                    Icons.done_all,
-                                    color: Colors.green,
-                                  ),
-                                ],
+                              child: GestureDetector(
+                                onTap: (){
+                                  UrlService().launchTelegram(admin.telegram);
+                                },
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    SvgPicture.asset(
+                                      "assets/icons/telegram.svg",
+                                      width: 25,
+                                    ),
+                                    Text(
+                                      admin.telegram,
+                                      maxLines: 3,
+                                      overflow: TextOverflow.ellipsis,
+                                      style: MyTextStyle.settingItemTextStyle,
+                                    ),
+                                    Icon(
+                                      Icons.done_all,
+                                      color: Colors.green,
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
                           ],

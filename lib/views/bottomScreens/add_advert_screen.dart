@@ -4,6 +4,7 @@ import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:multi_image_picker/multi_image_picker.dart';
+import 'package:nookat/constants/text_style.dart';
 import 'package:nookat/controler/ad_advert_cotroller.dart';
 import 'package:nookat/controler/read_category_controller.dart';
 import 'package:nookat/serviceFire/read_from_firebase.dart';
@@ -40,14 +41,31 @@ class AddAdvertScreen extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
+          Text(
+            "Жарнама берүү".tr,
+            style: MyTextStyle.settingTextStyle,
+          ),
+          MyTextFormField(
+            textEditingController: addAdvertController.user.value,
+            text: "Атыңыз".tr,
+            valid: true,
+            info: "Өзүңүздүн атыңызды жазыңыз".tr,
+          ), // user
           MyTextFormField(
             textEditingController: addAdvertController.title.value,
-            text: "Жаңылыктын темасы",
+            text: "Жарнаманын темасы".tr,
             valid: true,
-            info: "Жарнамаңызга тема бериңиз М: Автоунаа сатылат (манилүү)",
-          ),
+            info: "Жарнамаңызга тема бериңиз М: Автоунаа сатылат (манилүү)".tr,
+          ), // title
+          MyTextFormField(
+            textEditingController: addAdvertController.descriptions.value,
+            text: "Кененирээк".tr,
+            valid: true,
+            info: "Кененирээк маалымат жазыңыз (манилүү)".tr,
+            maxLines: 5,
+          ), // descriptions
           SizedBox(height: 20),
-          Text("Фото кошуу үчүн камераны басыңыз (манилүү эмес!)"),
+          Text("Сүрөт жүктөө үчүн камераны басыңыз (манилүү эмес!)".tr),
           Container(
             width: double.infinity,
             height: 50,
@@ -66,69 +84,46 @@ class AddAdvertScreen extends StatelessWidget {
             child: buildGridView(),
           ),
           MyTextFormField(
-            textEditingController: addAdvertController.titleDescription.value,
-            text: "Кыскача тема",
-            info: "Жарнаманын темасын ачыктоочу тема (манилүү эмес!)",
-          ),
-          MyTextFormField(
-            textEditingController: addAdvertController.descriptions.value,
-            text: "Баяндама",
-            valid: true,
-             info: "Жармаңызды толук баяндаңыз! (манилүү)",
-            maxLines: 5,
-          ),
-          MyTextFormField(
             textEditingController: addAdvertController.price.value,
-            text: "Баасы",
-            info: "Эгер бир нерсе сатып же кызмат көрсөтүп жатсаңыз анан баасын жазыңыз",
-          ),
-          MyTextFormField(
-            textEditingController: addAdvertController.whatsapp.value,
-            text: "whatsapp",
-            info: "Whatsapp номериңизди жазаңыз",
-          ),
-          MyTextFormField(
-            textEditingController: addAdvertController.telegram.value,
-            text: "telegram",
-            info: "telegram атыңызды жазаңыз",
-          ),
-          MyTextFormField(
-            textEditingController: addAdvertController.phone.value,
-            text: "Телефон номер",
-            info: "Телефон номериңизди жазаңыз",
-          ),
-          MyTextFormField(
-            textEditingController: addAdvertController.youtube.value,
-            text: "youtube ссылка",
-            info: "Эгер ютубтады видеоңуз болсо аны бул жакка кошуу үчүн https://www.youtube.com/watch?v=u3IkBhDIlfo ссылкасын алып анан юарабардан кийинкисин жазыңыз u3IkBhDIlfo",
-          ),
-          MyTextFormField(
-            textEditingController: addAdvertController.user.value,
-            text: "Атыңыз",
-            valid: true,
-            info: "Өзүңүздүн атыңызды жазаңыз",
+            text: "Баасы:".tr,
+            info: "Эгер бир нерсе сатып же кызмат көрсөтүп жатсаңыз анан баасын жазыңыз".tr,
           ),
           MyTextFormField(
             textEditingController: addAdvertController.address.value,
-            text: "Адресиңиз",
-            info: "Адресиңизди жазаңыз",
+            text: "Адресиңиз".tr,
+          ),
+          MyTextFormField(
+            textEditingController: addAdvertController.phone.value,
+            text: "Телефон номер".tr,
+          ),
+          MyTextFormField(
+            textEditingController: addAdvertController.whatsapp.value,
+            text: "Whatsapp номер".tr,
+          ),
+          MyTextFormField(
+            textEditingController: addAdvertController.telegram.value,
+            text: "Telegram",
+          ),
+          MyTextFormField(
+            textEditingController: addAdvertController.youtube.value,
+            text: "Youtube ссылка".tr,
+            info: "Эгер ютубтады видеоңуз болсо аны бул жакка кошуу үчүн https://www.youtube.com/watch?v=u3IkBhDIlfo ссылкасын алып анан юарабардан кийинкисин жазыңыз u3IkBhDIlfo".tr,
           ),
           MyTextFormField(
             textEditingController: addAdvertController.website.value,
-            text: "website",
-            info: "Эгер веб сайтыңыз болсо анан ссылкасын жазаңыз",
+            text: "Website",
+            info: "Эгер веб сайтыңыз болсо анан ссылкасын жазаңыз".tr,
           ),
           MyTextFormField(
             textEditingController: addAdvertController.email.value,
-            text: "email",
-            info: "Эгер email болсо анан email адресиңизди жазаңыз",
+            text: "email address",
           ),
           Obx(
             () => TextFormField(
               controller: addAdvertController.data.value,
               decoration: InputDecoration(
                 icon: Icon(Icons.calendar_today),
-                labelText: "Дата кириңиз",
+                labelText: "Дата кириңиз".tr,
               ),
               readOnly: true,
               onTap: () async {
@@ -157,11 +152,11 @@ class AddAdvertScreen extends StatelessWidget {
           ),
           MyTextFormField(
             textEditingController: addAdvertController.extraCategory.value,
-            text: "Кошумча категория",
-             info: "Эгер Кошумча категория кирсениз анда жогорудагы Каабар жана Шашылыш сатуу категириялары өчүрүлөт да сиз жазган категорияда кетет",
+            text: "Кошумча категория".tr,
+            info: "Эгер Кошумча категория кирсениз анда жогорудагы Каабар жана Шашылыш сатуу категириялары өчүрүлөт да сиз жазган категорияда кетет".tr,
           ),
           SizedBox(height: 20),
-          Text("Толом жургузуу учун бирин танданызы"),
+          Text("Толом жургузуу учун бирин танданызы".tr),
           Container(
             child: Row(
               children: [
@@ -172,7 +167,7 @@ class AddAdvertScreen extends StatelessWidget {
                       if (_formKey.currentState!.validate()) {
                         Get.to(CreditCardScreen());
                       } else {
-                        Get.defaultDialog(title: "Форманы толук толтуруңуз");
+                        Get.defaultDialog(title: "Жогорудагы 'Атыңыз', 'Жарнаманын темасы', 'Кененирээк' формаларын толук толтуруңуз".tr);
                       }
                     },
                   ),
@@ -184,7 +179,7 @@ class AddAdvertScreen extends StatelessWidget {
                       if (_formKey.currentState!.validate()) {
                         Get.to(CreditCardScreen());
                       } else {
-                        Get.defaultDialog(title: "Форманы толук толтуруңуз");
+                        Get.defaultDialog(title: "Жогорудагы 'Атыңыз', 'Жарнаманын темасы', 'Кененирээк' формаларын толук толтуруңуз".tr);
                       }
                     },
                   ),
@@ -196,7 +191,7 @@ class AddAdvertScreen extends StatelessWidget {
                       if (_formKey.currentState!.validate()) {
                         Get.to(CreditCardScreen());
                       } else {
-                        Get.defaultDialog(title: "Форманы толук толтуруңуз");
+                        Get.defaultDialog(title: "Жогорудагы 'Атыңыз', 'Жарнаманын темасы', 'Кененирээк' формаларын толук толтуруңуз".tr);
                       }
                     },
                   ),

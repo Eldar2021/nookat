@@ -93,14 +93,14 @@ class AdvertDetailInfo extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Expanded(child: Text("Тема:".tr+"    ${advert.title}")),
+              Expanded(child: Text("Тема:".tr + "    ${advert.title}")),
               Icon(Icons.check, color: Colors.green),
             ],
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Expanded(child: Text("Дата:".tr+"    ${advert.data ?? " "}")),
+              Expanded(child: Text("Дата:".tr + "    ${advert.data ?? " "}")),
               advert.data != ""
                   ? Icon(Icons.check, color: Colors.green)
                   : Icon(Icons.clear, color: Colors.red),
@@ -109,14 +109,14 @@ class AdvertDetailInfo extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Expanded(child: Text("Аты:".tr+"   ${advert.user}")),
+              Expanded(child: Text("Аты:".tr + "   ${advert.user}")),
               Icon(Icons.check, color: Colors.green),
             ],
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Expanded(child: Text("Категория:".tr+"   ${advert.advertCategory ?? " "}")),
+              Expanded(child: Text("Категория:".tr + "   ${advert.advertCategory ?? " "}")),
               advert.advertCategory != ""
                   ? Icon(Icons.check, color: Colors.green)
                   : Icon(Icons.clear, color: Colors.red),
@@ -125,7 +125,7 @@ class AdvertDetailInfo extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Expanded(child: Text("Баасы:".tr+"   ${advert.price ?? " "}")),
+              Expanded(child: Text("Баасы:".tr + "   ${advert.price ?? " "}")),
               advert.price != ""
                   ? Icon(Icons.check, color: Colors.green)
                   : Icon(Icons.clear, color: Colors.red),
@@ -134,7 +134,7 @@ class AdvertDetailInfo extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Expanded(child: Text("Адрес:".tr+"   ${advert.address ?? " "}")),
+              Expanded(child: Text("Адрес:".tr + "   ${advert.address ?? " "}")),
               advert.address != ""
                   ? Icon(Icons.check, color: Colors.green)
                   : Icon(Icons.clear, color: Colors.red),
@@ -145,7 +145,7 @@ class AdvertDetailInfo extends StatelessWidget {
             children: [
               Expanded(
                 child: Text(
-                  "Кыскача:".tr+"   ${advert.titleDescription ?? " "}",
+                  "Кыскача:".tr + "   ${advert.titleDescription ?? " "}",
                 ),
               ),
               advert.titleDescription != ""
@@ -153,19 +153,19 @@ class AdvertDetailInfo extends StatelessWidget {
                   : Icon(Icons.clear, color: Colors.red),
             ],
           ),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           Row(
             children: [
               Expanded(
                 child: ReadMoreText(
-                  "Толук маалымат:".tr+"   ${advert.descriptions}",
+                  "Толук маалымат:".tr + "   ${advert.descriptions}",
                   trimLines: 5,
                   style: TextStyle(),
                   colorClickableText: Colors.pink,
                   trimMode: TrimMode.Line,
                   trimCollapsedText: 'Дагы оку'.tr,
                   trimExpandedText: 'Жабуу'.tr,
-                  moreStyle: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+                  moreStyle: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
                 ),
               ),
               Icon(Icons.check, color: Colors.green)
@@ -209,7 +209,7 @@ class AdvertConnect extends StatelessWidget {
                   ),
                 )
               : Container(),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           advert.whatsapp != ""
               ? GestureDetector(
                   onTap: () {
@@ -228,9 +228,12 @@ class AdvertConnect extends StatelessWidget {
                   ),
                 )
               : Container(),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           advert.telegram != ""
               ? GestureDetector(
+                  onTap: () {
+                    UrlService().launchTelegram(advert.telegram);
+                  },
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -244,7 +247,7 @@ class AdvertConnect extends StatelessWidget {
                   ),
                 )
               : Container(),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           advert.email != ""
               ? GestureDetector(
                   onTap: () {
@@ -263,7 +266,7 @@ class AdvertConnect extends StatelessWidget {
                   ),
                 )
               : Container(),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           advert.website != ""
               ? GestureDetector(
                   onTap: () {
@@ -272,7 +275,7 @@ class AdvertConnect extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text("Веб сайт:".tr+"   "),
+                      Text("Веб сайт:".tr + "   "),
                       Expanded(
                           child: Text(
                         "${advert.website}",
@@ -286,19 +289,20 @@ class AdvertConnect extends StatelessWidget {
                   ),
                 )
               : Container(),
-          SizedBox(height: 10),
+          const SizedBox(height: 30),
           GestureDetector(
-            onTap: (){
+            onTap: () {
               ShareService().share(advert.descriptions, advert.title);
             },
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text("Болуш:".tr+"   "),
+                Text("Болуш:".tr + "   "),
                 Icon(Icons.publish_sharp),
               ],
             ),
           ),
+          const SizedBox(height: 10),
         ],
       ),
     );

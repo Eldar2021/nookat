@@ -2,8 +2,12 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:get/get.dart';
+import 'package:nookat/constants/color.dart';
+import 'package:nookat/controler/settings_controller.dart';
 
 class HomeController extends GetxController {
+  final SettingsController settingsController = Get.find();
+
   RxBool visible = true.obs;
 
   void toBottom() {
@@ -39,32 +43,43 @@ class HomeController extends GetxController {
   }
 
   late FirebaseMessaging messaging;
+  ScrollController scrollController = ScrollController();
+
 
   @override
-  void onInit() async{
-    print("heeey i am Eldar--------------------------");
+  void onInit() async {
+    super.onInit();
+    handleScroll(scrollController);
     messaging = FirebaseMessaging.instance;
-    await messaging.subscribeToTopic("topics-all");
-    print("heeey i am topic--------------------------");
+    if(settingsController.notRead.read(settingsController.notKey) == true){
+      await messaging.subscribeToTopic("topics-all");
+    }else if(settingsController.notRead.read(settingsController.notKey) == false){
+      await messaging.unsubscribeFromTopic("topics-all");
+    }else{
+      await messaging.subscribeToTopic("topics-all");
+    }
     FirebaseMessaging.onMessage.listen((RemoteMessage event) {
-      print("message recieved");
-      print(event.notification!.body);
-      Get.defaultDialog(
-        content: AlertDialog(
-          title: Text(event.notification!.title!),
-          content: Text(event.notification!.body!),
-          actions: [
-            TextButton(
-              child: Text("Ok"),
-              onPressed: () {},
-            )
-          ],
-        ),
+      Get.snackbar(
+        event.notification!.title!,
+        event.notification!.body!,
+        colorText: const Color(0xff000000),
+        backgroundColor: MyColors.whiteColor,
       );
     });
     FirebaseMessaging.onMessageOpenedApp.listen((message) {
-      print("yes!!!");
+      Get.snackbar(
+        message.notification!.title!,
+        message.notification!.body!,
+        colorText: const Color(0xff000000),
+        backgroundColor: MyColors.whiteColor,
+      );
     });
-    super.onInit();
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    scrollController.removeListener(() {});
+    super.dispose();
   }
 }

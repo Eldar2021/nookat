@@ -1,3 +1,4 @@
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
@@ -14,15 +15,15 @@ class SettingsController extends GetxController {
     lang = langRead.read(key) == 1
         ? 1.obs
         : langRead.read(key) == 2
-            ? 2.obs
-            : 3.obs;
+        ? 2.obs
+        : 3.obs;
     colorKg = langRead.read(key) == 1
         ? Colors.green.obs
-        :langRead.read(key) == null ? Colors.green.obs : Colors.grey.obs;
+        : langRead.read(key) == null ? Colors.green.obs : Colors.grey.obs;
     colorRu = langRead.read(key) == 3 ? Colors.green.obs : Colors.grey.obs;
     colorUz = langRead.read(key) == 2 ? Colors.green.obs : Colors.grey.obs;
-    super.onInit();
-  }
+    notification.value = notRead.read(notKey)== null? true: notRead.read(notKey);
+    }
 
   late Rx<Color> colorKg;
   late Rx<Color> colorRu;
@@ -63,9 +64,19 @@ class SettingsController extends GetxController {
   }
 
   RxBool notification = true.obs;
+  final notRead = GetStorage();
+  FirebaseMessaging messaging = FirebaseMessaging.instance;
+  String notKey = "notification";
 
-  void changedNot() {
-    notification.value = !notification.value;
+
+  void changedNot(bool notValue) async {
+    print("chchchch $notValue");
+    if (notValue == true) {
+      await messaging.subscribeToTopic("topics-all");
+    } else if (notValue == false) {
+      await messaging.unsubscribeFromTopic("topics-all");
+    }
+    notRead.write(notKey, notification.value);
     update();
   }
 }
