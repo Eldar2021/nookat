@@ -31,7 +31,6 @@ dependencies:
   firebase_core: ^1.6.0
   cloud_firestore: ^2.5.0
   firebase_storage: ^10.0.3
-  image_picker: ^0.8.3+3
   multi_image_picker: ^4.8.1
   carousel_pro: ^1.0.0
   intl: ^0.17.0
@@ -43,7 +42,6 @@ dependencies:
   url_launcher: ^6.0.9
   youtube_player_flutter: ^8.0.0
   readmore: ^2.1.0
-  shared_preferences: ^2.0.7
   get_storage: ^2.0.3
   whatsapp_unilink: ^2.0.0
   share_plus: ^2.1.4

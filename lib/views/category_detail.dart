@@ -11,7 +11,7 @@ class CategoryDetailStream extends StatelessWidget {
   });
 
   final String category;
-  final Stream<QuerySnapshot> _usersStream = FirebaseFirestore.instance.collection('advert').snapshots();
+  final Stream<QuerySnapshot> _usersStream = FirebaseFirestore.instance.collection('advert').orderBy("data",descending: true).snapshots();
   final List<Advert> adverts = [];
 
   @override

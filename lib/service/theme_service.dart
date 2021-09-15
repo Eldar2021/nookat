@@ -20,6 +20,7 @@ class ThemeService {
     Get.changeTheme(ThemeData.dark());
     _saveThemeToBox1(true);
   }
+
   void lightTheme() {
     Get.changeTheme(ThemeData.light());
     _saveThemeToBox1(false);

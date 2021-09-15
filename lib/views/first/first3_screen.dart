@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:nookat/constants/color.dart';
 import 'package:nookat/views/first/first4_screen.dart';
+import 'package:nookat/widgets/first_widgets.dart';
 
 class First3Screen extends StatelessWidget {
   const First3Screen({Key? key}) : super(key: key);
@@ -9,35 +9,13 @@ class First3Screen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          const SizedBox(height: 20),
-          Container(
-              child: Image.asset("assets/image/nookat_admin.jpeg")
-          ),
-          InkWell(
-            onTap: (){
-              Get.off(First4Screen());
-            },
-            child: Container(
-              padding: const EdgeInsets.all(10),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10.0),
-                color: MyColors.myRed,
-              ),
-              child: Text(
-                "Далее",
-                style: TextStyle(
-                  color: MyColors.whiteColor,
-                  fontSize: 24,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-            ),
-          ),
-          const SizedBox(height: 20),
-        ],
+      body: FirstScreenWidget(
+        text:
+        "Бул баракча аркылуу Ноокат районуна жарнама же кабар тарата аласыз.".tr,
+        photo: "assets/image/photo_2021-09-15_22-53-59-removebg-preview.png",
+        function: (){
+          Get.off(First4Screen());
+        },
       ),
     );
   }

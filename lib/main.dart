@@ -66,6 +66,7 @@ class MyApp extends StatelessWidget {
         nextScreen: firstController.firstStorage.read(firstController.firstKey) == null
             ? FirstScreen()
             : MainScreen(),
+        // nextScreen: MainScreen(),
         splashTransition: SplashTransition.sizeTransition,
         backgroundColor: MyColors.whiteColor,
       ),

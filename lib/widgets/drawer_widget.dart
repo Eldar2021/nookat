@@ -8,6 +8,7 @@ class MyCategoryListStreamBuilder extends StatelessWidget {
   MyCategoryListStreamBuilder({required this.function});
 
   final Function function;
+  final List<String> categories = [];
 
   final Stream<QuerySnapshot> _usersStream =
       FirebaseFirestore.instance.collection('advert').snapshots();
@@ -23,14 +24,24 @@ class MyCategoryListStreamBuilder extends StatelessWidget {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return Center(child: CircularProgressIndicator());
         }
-        return ListView(
+        final category = snapshot.data!.docs;
+        for (var rest in category) {
+          Map<String, dynamic> data = rest.data()! as Map<String, dynamic>;
+          if (categories.contains(data["AdvertCategory"])) {
+            //categories.add(data["AdvertCategory"]);
+          } else {
+            categories.add(data["AdvertCategory"]);
+          }
+        }
+        return ListView.builder(
           shrinkWrap: true,
           primary: false,
-          children: snapshot.data!.docs.map((DocumentSnapshot document) {
-            Map<String, dynamic> data = document.data()! as Map<String, dynamic>;
+          itemCount: categories.length,
+          itemBuilder: (context, index) {
+            String cat = categories[index];
             return GestureDetector(
               onTap: () {
-                function(data["AdvertCategory"]);
+                function(cat);
               },
               child: Container(
                 margin: const EdgeInsets.all(15.0),
@@ -45,14 +56,14 @@ class MyCategoryListStreamBuilder extends StatelessWidget {
                     ),
                     const SizedBox(width: 20),
                     Text(
-                      "${data["AdvertCategory"]}",
+                      "$cat",
                       style: MyTextStyle.homeCategory,
                     ),
                   ],
                 ),
               ),
             );
-          }).toList(),
+          },
         );
       },
     );

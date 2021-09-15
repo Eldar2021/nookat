@@ -49,8 +49,6 @@ class AddAdvertFromAdminController extends GetxController {
     } on Exception catch (e) {
       _error = e.toString();
     }
-    //if (!mounted) return;
-
     images.value = resultList1;
     error.value = _error;
     update();
@@ -70,7 +68,6 @@ class AddAdvertFromAdminController extends GetxController {
     await addAdvert();
     Get.back();
     homeController.backPage();
-    Get.back();
   }
 
   Future<List<String>> uploadImages(List<Asset> _images) async {
@@ -79,13 +76,12 @@ class AddAdvertFromAdminController extends GetxController {
         ((_image) async {
           try {
             var firebaseStorageRef =
-            FirebaseStorage.instance.ref().child('${user..value.text}/${DateTime.now()}');
+            FirebaseStorage.instance.ref().child('${user.value.text}/${DateTime.now()}');
             var uploadTask =
             firebaseStorageRef.putData((await _image.getByteData()).buffer.asUint8List());
             var taskSnapshot = await uploadTask;
-            taskSnapshot.ref.getDownloadURL().then(
+            await taskSnapshot.ref.getDownloadURL().then(
                   (value) {
-                print("Done: $value");
                 photos.add(value);
                 print(photos);
               },
@@ -94,7 +90,6 @@ class AddAdvertFromAdminController extends GetxController {
         }),
       ),
     );
-    print("Done: --------------------------------------------------");
     return photos;
   }
 

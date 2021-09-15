@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -60,13 +62,12 @@ class AddAdvertController extends GetxController {
         ((_image) async {
           try {
             var firebaseStorageRef =
-                FirebaseStorage.instance.ref().child('${user..value.text}/${DateTime.now()}');
+                FirebaseStorage.instance.ref().child('${user.value.text}/${DateTime.now()}');
             var uploadTask =
                 firebaseStorageRef.putData((await _image.getByteData()).buffer.asUint8List());
             var taskSnapshot = await uploadTask;
-            taskSnapshot.ref.getDownloadURL().then(
+            await taskSnapshot.ref.getDownloadURL().then(
               (value) {
-                print("Done: $value");
                 photos.add(value);
                 print(photos);
               },
@@ -75,12 +76,11 @@ class AddAdvertController extends GetxController {
         }),
       ),
     );
-    print("Done: --------------------------------------------------");
     return photos;
   }
 
   Future<void> toFire()async {
-    HomeController homeController = Get.find();
+    HomeController homeController = Get.put(HomeController());
     Get.defaultDialog(
         barrierDismissible: false,
         onWillPop: () async=>false,
@@ -93,11 +93,9 @@ class AddAdvertController extends GetxController {
     await addAdvert();
     Get.back();
     homeController.backPage();
-    Get.back();
   }
 
   Future<void> addAdvert() async {
-   //await Get.to(HomePage());
     await uploadImages(images);
     if (category.value != "") {
       if (category.value == "Кабар") {

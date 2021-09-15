@@ -120,7 +120,7 @@ class FirstScreen extends StatelessWidget {
                 color: MyColors.myRed,
               ),
               child: Text(
-                "Далее",
+                "Андан ары".tr,
                 style: TextStyle(
                   color: MyColors.whiteColor,
                   fontSize: 24,

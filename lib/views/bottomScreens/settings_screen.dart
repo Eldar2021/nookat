@@ -4,7 +4,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:nookat/constants/text_style.dart';
 import 'package:nookat/controler/settings_controller.dart';
-import 'package:nookat/service/theme_service.dart';
 import 'package:nookat/widgets/setting_widget.dart';
 
 class SettingsScreen extends StatelessWidget {
@@ -113,14 +112,14 @@ class SettingsScreen extends StatelessWidget {
               Expanded(
                 child: MySettingsContainer(
                   child: Image.asset(
-                    "assets/image/lg.png",
+                    "assets/image/light.jpg",
                     width: Get.width / 3,
                     height: Get.width / 2,
                     fit: BoxFit.cover,
                   ),
                   padding: const EdgeInsets.all(10),
                   onTab: () {
-                    ThemeService().lightTheme();
+                    Get.changeTheme(ThemeData.light());
                   },
                 ),
               ),
@@ -128,14 +127,14 @@ class SettingsScreen extends StatelessWidget {
               Expanded(
                 child: MySettingsContainer(
                   child: Image.asset(
-                    "assets/image/dr.png",
+                    "assets/image/dark.jpg",
                     width: Get.width / 3,
                     height: Get.width / 2,
                     fit: BoxFit.cover,
                   ),
                   padding: EdgeInsets.all(10),
                   onTab: () {
-                    ThemeService().darkTheme();
+                    Get.changeTheme(ThemeData.dark());
                   },
                 ),
               ),

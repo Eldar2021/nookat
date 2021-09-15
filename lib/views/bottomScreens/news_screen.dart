@@ -5,7 +5,7 @@ import 'package:nookat/widgets/home_screen_widgets.dart';
 import 'package:get/get.dart';
 
 class NewsScreen extends StatelessWidget {
-  final Stream<QuerySnapshot> news = FirebaseFirestore.instance.collection('news').snapshots();
+  final Stream<QuerySnapshot> news = FirebaseFirestore.instance.collection('news').orderBy("data",descending: true).snapshots();
 
   @override
   Widget build(BuildContext context) {

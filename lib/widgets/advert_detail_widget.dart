@@ -275,7 +275,7 @@ class AdvertConnect extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text("Веб сайт:".tr + "   "),
+                      Text('Веб-сайт:'.tr + "   "),
                       Expanded(
                           child: Text(
                         "${advert.website}",

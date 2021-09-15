@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'package:nookat/constants/color.dart';
 import 'package:nookat/constants/text_style.dart';
 import 'package:nookat/models/admin.dart';
+import 'package:nookat/myLanguage/my_text.dart';
 import 'package:nookat/service/get_url_service.dart';
 import 'package:readmore/readmore.dart';
 
@@ -48,7 +49,7 @@ class ContactToAdmin extends StatelessWidget {
                 ],
               ),
               child: ReadMoreText(
-                "Мен Бугун кундогудон ойлуу турам негедимр журогум да толкуп уламМен Бугун кундогудон ойлуу турам негедимр журогум да толкуп уламМен Бугун кундогудон ойлуу турам негедимр журогум да толкуп уламМен Бугун кундогудон ойлуу турам негедимр журогум да толкуп уламМен Бугун кундогудон ойлуу турам негедимр журогум да толкуп уламМен Бугун кундогудон ойлуу турам негедимр журогум да толкуп уламМен Бугун кундогудон ойлуу турам негедимр журогум да толкуп уламМен Бугун кундогудон ойлуу турам негедимр журогум да толкуп улам",
+                MyText.adminText,
                 colorClickableText: MyColors.myRed,
                 moreStyle: MyTextStyle.moreTextStyle,
                 trimCollapsedText: "Дагы оку".tr,

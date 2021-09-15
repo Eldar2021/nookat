@@ -1,4 +1,10 @@
 const Map<String, String> uzUZ = {
+  "Андан ары": "Keyinchalik",
+  "Манилүү": "Muhim",
+  "Манилүү эмес": "Muhim emas",
+  "Бул бөлүмдөрдү сөзсүз толтуруунун кажети жок кошумча маалыматыңыз болсо, жазып койсоңуз жакшы":
+      "Agar sizda bu bo'limni to'ldirishingiz shart bo'lmagan qo'shimcha ma'lumotlar bo'lsa, uni yozib qo'ying.",
+  "Бул бөлүмдөрдү сөзсүз толтурууңуз кажет!": "Siz ushbu bo'limlarni to'ldirishingiz kerak!",
   'Карт ээсинин аты': 'Karta egasining ismi',
   'Жарамдуулук мөөнөтү': 'Kartaning muddati',
   "Картанын Номери": "Karta raqami",
@@ -9,7 +15,7 @@ const Map<String, String> uzUZ = {
       "Rasm yuklash uchun kamerani bosing (muhim emas!)",
   "Кененирээк маалымат жазыңыз (манилүү)": "Batafsil yozing (muhim)",
   "Кененирээк": "Batafsil",
-  "Жарнамаңызга тема бериңиз М: Автоунаа сатылат (манилүү)":
+  "Жарнамаңызга тема бериңиз Мисалы Автоунаа сатылат (манилүү)":
       "E'loningiz uchun mavzu yuboring M: Avtomobil savdosi (muhim)",
   "Өзүңүздүн атыңызды жазыңыз": "Ismingizni yozing",
   "Жарнаманын темасы": "Sarlavha",
@@ -38,22 +44,28 @@ const Map<String, String> uzUZ = {
   'Телефон:': "Telefon:",
   'Whatsapp:': "Whatsapp:",
   'Telegram:': "Telegram:",
-  'Веб сайт:': "Veb -sayt:",
+  'Веб-сайт:': "Veb-sayt:",
   'Администрация:': "Ma'muriyat:",
   "Адресиңиз": "Sizning manzilingiz",
   "Телефон номер": "Telefon raqami",
   "Whatsapp номер": "Whatsapp raqami",
-  "Youtube ссылка": "Youtube havolasi",
-  "Дата кириңиз": "Sanani kiriting",
+  "YouTube ссылка": "YouTube havolasi",
+  "Күнүн жазыңыз": "Sanani kiriting",
   "Кошумча категория": "Qo'shimcha toifalar",
   "Жогорудагы 'Атыңыз', 'Жарнаманын темасы', 'Кененирээк' формаларын толук толтуруңуз":
       "Yuqoridagi 'Ism', 'E'lon mavzusi', 'Tafsilotlar' shakllarini to'ldiring.",
-  "Толом жургузуу учун бирин танданызы": "To'lovni amalga oshirish uchun birini tanlang",
-  "Эгер Кошумча категория кирсениз анда жогорудагы Каабар жана Шашылыш сатуу категириялары өчүрүлөт да сиз жазган категорияда кетет":
+  "Төлөм жүргүзүү үчүн бирин тандаңыз": "To'lovni amalga oshirish uchun birini tanlang",
+  "Эгер Кошумча категория жазсаңыз анда жогорудагы Каабар жана Шашылыш сатуу категириялары өчүрүлөт да сиз жазган категорияда кетет":
       "Agar siz Qoshimcha toifasiga kirsangiz, yuqoridagi Kaabar va Shoshilinch savdo toifalari ochiriladi va siz yozgan toifaga otkaziladi.",
-  "Эгер веб сайтыңыз болсо анан ссылкасын жазаңыз": "Agar veb -saytingiz bo'lsa, havolani yozing",
-  "Эгер ютубтады видеоңуз болсо аны бул жакка кошуу үчүн https://www.youtube.com/watch?v=u3IkBhDIlfo ссылкасын алып анан юарабардан кийинкисин жазыңыз u3IkBhDIlfo":
+  "Эгер веб-сайтыңыз болсо анын ссылкасын жазыңыз": "Agar veb-saytingiz bo'lsa, havolani yozing",
+  "Эгер YouTube видеоңуз болсо аны бул жакка кошуу үчүн https://www.youtube.com/watch?v=u3IkBhDIlfo ссылкасын алып анан барабардан кийинкисин жазыңыз u3IkBhDIlfo":
       "Agar sizda g'olib video bo'lsa, https://www.youtube.com/watch?v=u3IkBhDIlfo havolasini bosing va uni bu erga qo'shib qo'ying, keyin yuarabar u3IkBhDIlfo dan keyin quyidagilarni yozing.",
-  "Эгер бир нерсе сатып же кызмат көрсөтүп жатсаңыз анан баасын жазыңыз":
+  "Эгер бир нерсе сатып же кызмат көрсөтүп жатсаңыз анын баасын жазыңыз":
       "Agar biror narsa sotsangiz yoki xizmat ko'rsatsangiz, narxini yozing",
+  "Бул негизги баракча болуп анда алгач шашылыш сатуулар кабарлар андан кийин башка жарнамалар тизмектелет.":
+  "Bu shoshilinch tijorat xabarlari ro'yxati, keyin boshqa e'lonlar ko'rsatiladigan uy sahifasi.",
+  "Бул баракчада Ноокат районундагы жанылыктар камтылат.": "Bu sahifada Novqat viloyati yangiliklari bor.",
+  "Бул баракча аркылуу Ноокат районуна жарнама же кабар тарата аласыз.": "Bu sahifa orqali siz Nookat tumanidagi reklama yoki yangiliklarni tarqatishingiz mumkin.",
+  "Бул баракчада тиркменин максаты жана кандай колдонуу керектигин окуй аласыз." :"Bu sahifada siz ilovaning maqsadi va undan qanday foydalanishni o'qishingiz mumkin.",
+  "Бул баракча аркылуу тиркеменин тилин, арткы фон түсүн, жана билдирүүсүн өзгөртө аласыз.": "Bu sahifada siz dastur tili, fon rangi va bildirishnomalarni o'zgartirishingiz mumkin.",
 };

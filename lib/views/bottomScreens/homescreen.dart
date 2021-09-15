@@ -5,11 +5,11 @@ import 'package:nookat/widgets/home_screen_widgets.dart';
 import 'package:get/get.dart';
 
 class HomePage extends StatelessWidget {
-  final Stream<QuerySnapshot> urgent = FirebaseFirestore.instance.collection('urgent').snapshots();
+  final Stream<QuerySnapshot> urgent = FirebaseFirestore.instance.collection('urgent').orderBy("data",descending: true).snapshots();
 
-  final Stream<QuerySnapshot> advert = FirebaseFirestore.instance.collection('advert').snapshots();
+  final Stream<QuerySnapshot> advert = FirebaseFirestore.instance.collection('advert').orderBy("data",descending: true).snapshots();
 
-  final Stream<QuerySnapshot> news = FirebaseFirestore.instance.collection('news').snapshots();
+  final Stream<QuerySnapshot> news = FirebaseFirestore.instance.collection('news').orderBy("data",descending: true).snapshots();
 
   @override
   Widget build(BuildContext context) {

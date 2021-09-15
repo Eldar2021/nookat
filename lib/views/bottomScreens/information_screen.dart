@@ -3,12 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:nookat/constants/color.dart';
 import 'package:nookat/constants/text_style.dart';
 import 'package:nookat/models/information_about_app.dart';
+import 'package:nookat/myLanguage/my_text.dart';
 import 'package:readmore/readmore.dart';
 import 'package:get/get.dart';
 
 class InformationScreen extends StatelessWidget {
   final Stream<QuerySnapshot> _usersStream =
-  FirebaseFirestore.instance.collection('information').snapshots();
+      FirebaseFirestore.instance.collection('information').snapshots();
 
   @override
   Widget build(BuildContext context) {
@@ -19,6 +20,42 @@ class InformationScreen extends StatelessWidget {
           child: Text(
             "Колдонуу инструкциясы".tr,
             style: MyTextStyle.homeTheme,
+          ),
+        ),
+        Container(
+          margin: const EdgeInsets.all(10.0),
+          padding: const EdgeInsets.all(10.0),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(8.0),
+            color: MyColors.whiteColor,
+            boxShadow: [
+              BoxShadow(
+                color: MyColors.boxShadowColor,
+                offset: const Offset(2, 2),
+              ),
+            ],
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                "Ноокат жарнама",
+                overflow: TextOverflow.ellipsis,
+                style: MyTextStyle.homeUser,
+              ),
+              const SizedBox(height: 15),
+              ReadMoreText(
+                "${MyText.informationTextKg}",
+                style: MyTextStyle.homeTitle,
+                trimLines: 5,
+                colorClickableText: MyColors.myRed,
+                trimMode: TrimMode.Line,
+                trimCollapsedText: 'Дагы оку'.tr,
+                trimExpandedText: 'Жабуу'.tr,
+                moreStyle: MyTextStyle.moreTextStyle,
+              ),
+            ],
           ),
         ),
         StreamBuilder<QuerySnapshot>(
@@ -61,7 +98,7 @@ class InformationScreen extends StatelessWidget {
                         overflow: TextOverflow.ellipsis,
                         style: MyTextStyle.homeUser,
                       ),
-                    const   SizedBox(height: 15),
+                      const SizedBox(height: 15),
                       ReadMoreText(
                         informationAboutApp.description,
                         style: MyTextStyle.homeTitle,
