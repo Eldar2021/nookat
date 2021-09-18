@@ -31,6 +31,18 @@ class MainScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: MyColors.primaryColor,
+        title:  ShaderMask(
+          shaderCallback: (Rect bounds) {
+            return RadialGradient(
+              center: Alignment.topLeft,
+              radius: 2.0,
+              colors: <Color>[Colors.yellow, Colors.deepOrange.shade900],
+              tileMode: TileMode.mirror,
+            ).createShader(bounds);
+          },
+          child: Text('Ноокат жарнама', style: TextStyle(fontSize: 32),),
+        ),
+        centerTitle: true,
       ),
       drawer: Drawer(
         child: ListView(
@@ -38,19 +50,19 @@ class MainScreen extends StatelessWidget {
           children: <Widget>[
             Container(
               child: new Image.asset(
-                "assets/image/nookat_admin.jpeg",
+                "assets/image/logo.png",
                 fit: BoxFit.cover,
               ),
             ),
-            Container(
-              margin: const EdgeInsets.only(top: 5, bottom: 5),
-              padding: const EdgeInsets.all(10),
-              width: double.infinity,
-              color: MyColors.myRed,
-              child: GestureDetector(
-                onTap: () {
-                  Get.to(ContactToAdmin());
-                },
+            InkWell(
+              onTap: () {
+                Get.to(ContactToAdmin());
+              },
+              child: Container(
+                margin: const EdgeInsets.only(top: 5, bottom: 5),
+                padding: const EdgeInsets.all(10),
+                width: double.infinity,
+                color: MyColors.myRed,
                 child: Row(
                   children: [
                     Icon(
@@ -72,19 +84,19 @@ class MainScreen extends StatelessWidget {
               color: MyColors.primaryColor,
               child: MyCategoryListStreamBuilder(
                 function: (value) {
-                  Get.to(CategoryDetailStream(category: '$value'));
+                  Get.to(CategoryDetailStream(category: value));
                 },
               ),
             ),
-            Container(
-              margin: const EdgeInsets.only(top: 5, bottom: 5),
-              padding: const EdgeInsets.all(10),
-              width: double.infinity,
-              color: MyColors.whatsappColor,
-              child: GestureDetector(
-                onTap: () {
-                  Get.to(AdminControlScreen());
-                },
+            InkWell(
+              onTap: () {
+                Get.to(AdminControlScreen());
+              },
+              child: Container(
+                margin: const EdgeInsets.only(top: 5, bottom: 5),
+                padding: const EdgeInsets.all(10),
+                width: double.infinity,
+                color: MyColors.whatsappColor,
                 child: Row(
                   children: [
                     Icon(

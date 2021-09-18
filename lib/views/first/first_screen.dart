@@ -20,8 +20,9 @@ class FirstScreen extends StatelessWidget {
         children: [
           const SizedBox(height: 20),
           Container(
-            child: Image.asset("assets/image/elcart.png")
+            child: Expanded(child: Image.asset("assets/image/logo.png"))
           ),
+          const SizedBox(height: 20),
           MySettingsContainer(
             onTab: () {
               settingsController.kg();

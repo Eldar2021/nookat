@@ -35,14 +35,15 @@ class FirstScreenWidget extends StatelessWidget {
                 ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: Expanded(
-                  child: Image.asset(
-                    photo,
-                    width: Get.width / 2,
-                    alignment: Alignment.bottomRight,
-                  )),
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Image.asset(
+                  photo,
+                  width: Get.width / 2,
+                  alignment: Alignment.bottomRight,
+                ),
+              ),
             ),
           ],
         ),

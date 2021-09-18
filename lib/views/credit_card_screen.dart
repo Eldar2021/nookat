@@ -3,7 +3,7 @@ import 'package:flutter_credit_card/credit_card_form.dart';
 import 'package:flutter_credit_card/credit_card_widget.dart';
 import 'package:get/get.dart';
 import 'package:nookat/constants/color.dart';
-import 'package:nookat/controler/ad_advert_cotroller.dart';
+import 'package:nookat/controler/add_advert_cotroller.dart';
 import 'package:nookat/controler/credit_card_controller.dart';
 
 class CreditCardScreen extends StatelessWidget {

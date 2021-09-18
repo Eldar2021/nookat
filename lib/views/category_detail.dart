@@ -10,7 +10,7 @@ class CategoryDetailStream extends StatelessWidget {
     required this.category,
   });
 
-  final String category;
+  final Map<String, dynamic> category;
   final Stream<QuerySnapshot> _usersStream = FirebaseFirestore.instance.collection('advert').orderBy("data",descending: true).snapshots();
   final List<Advert> adverts = [];
 
@@ -19,7 +19,7 @@ class CategoryDetailStream extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: MyColors.primaryColor,
-        title: Text(category),
+        title: Text("${category["label"]}".tr),
       ),
       body: StreamBuilder<QuerySnapshot>(
         stream: _usersStream,
@@ -33,7 +33,7 @@ class CategoryDetailStream extends StatelessWidget {
           final booksDB = snapshot.data!.docs;
           for (var rest in booksDB) {
             Map<String, dynamic> data = rest.data()! as Map<String, dynamic>;
-            if (category == data["AdvertCategory"]) {
+            if (category["value"] == data["AdvertCategory"]) {
               final Advert advert = Advert(
                 titleDescription: data['titleDescription'],
                 descriptions: data['descriptions'],

@@ -6,10 +6,11 @@ import 'package:intl/intl.dart';
 import 'package:multi_image_picker/multi_image_picker.dart';
 import 'package:nookat/constants/color.dart';
 import 'package:nookat/constants/text_style.dart';
-import 'package:nookat/controler/ad_advert_cotroller.dart';
+import 'package:nookat/controler/add_advert_cotroller.dart';
 import 'package:nookat/controler/read_category_controller.dart';
-import 'package:nookat/serviceFire/read_from_firebase.dart';
+import 'package:nookat/widgets/type_widget.dart';
 import 'package:nookat/widgets/add_advert_widgets.dart';
+import 'package:nookat/widgets/category_dropdown_widget.dart';
 import 'package:readmore/readmore.dart';
 
 class AddAdvertScreen extends StatelessWidget {
@@ -197,18 +198,14 @@ class AddAdvertScreen extends StatelessWidget {
                   text: "email address",
                 ),
                 SizedBox(height: 20),
-                ReadCategory(
+                TypeAdvert(
                   function: (String value) {
-                    addAdvertController.category.value = value;
-                    print(addAdvertController.category.value);
+                    addAdvertController.type.value = value;
+                    print(addAdvertController.type.value);
                   },
                 ),
-                MyTextFormField(
-                  textEditingController: addAdvertController.extraCategory.value,
-                  text: "Кошумча категория".tr,
-                  info:
-                  "Эгер Кошумча категория жазсаңыз анда жогорудагы Каабар жана Шашылыш сатуу категириялары өчүрүлөт да сиз жазган категорияда кетет".tr,
-                ),
+                CategoryDropdown(textEditingController: addAdvertController.category.value,),
+                const SizedBox(height: 20),
               ],
             ),
           ),

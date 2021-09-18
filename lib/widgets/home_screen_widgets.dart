@@ -246,7 +246,7 @@ class AdvertCard extends StatelessWidget {
                         borderRadius: BorderRadius.circular(4.0),
                       ),
                       child: Text(
-                        "${advert.advertCategory}",
+                        "${advert.advertCategory}".tr,
                         style: MyTextStyle.homeCategory,
                       ),
                     ),

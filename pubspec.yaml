@@ -51,6 +51,7 @@ dependencies:
   flutter_local_notifications: ^8.1.1+2
   overlay_support: ^1.2.1
   cloud_functions: ^3.0.3
+  select_form_field: ^2.2.0
 
 dev_dependencies:
   flutter_test:

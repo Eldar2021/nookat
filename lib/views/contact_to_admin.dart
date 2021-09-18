@@ -28,10 +28,10 @@ class ContactToAdmin extends StatelessWidget {
               width: double.infinity,
               height: Get.width / 2,
               child: Image.asset(
-                "assets/image/nookat_admin.jpeg",
+                "assets/image/logo.png",
                 width: double.infinity,
                 height: Get.width / 2,
-                fit: BoxFit.cover,
+                fit: BoxFit.contain,
               ),
             ),
             Container(
@@ -49,7 +49,7 @@ class ContactToAdmin extends StatelessWidget {
                 ],
               ),
               child: ReadMoreText(
-                MyText.adminText,
+                MyText.adminText.tr,
                 colorClickableText: MyColors.myRed,
                 moreStyle: MyTextStyle.moreTextStyle,
                 trimCollapsedText: "Дагы оку".tr,

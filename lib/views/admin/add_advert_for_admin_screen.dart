@@ -4,7 +4,7 @@ import 'package:intl/intl.dart';
 import 'package:multi_image_picker/multi_image_picker.dart';
 import 'package:nookat/constants/color.dart';
 import 'package:nookat/controler/admin_controller.dart';
-import 'package:nookat/serviceFire/read_from_firebase.dart';
+import 'package:nookat/widgets/type_widget.dart';
 import 'package:nookat/widgets/add_advert_widgets.dart';
 
 class AddAdvertForAdminScreen extends StatelessWidget {
@@ -139,7 +139,7 @@ class AddAdvertForAdminScreen extends StatelessWidget {
                       },
                     ),
                   ),
-                  ReadCategory(
+                  TypeAdvert(
                     function: (String value) {
                       addAdvertFromAdminController.category.value = value;
                       print(addAdvertFromAdminController.category.value);

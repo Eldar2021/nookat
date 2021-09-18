@@ -46,7 +46,7 @@ class InformationScreen extends StatelessWidget {
               ),
               const SizedBox(height: 15),
               ReadMoreText(
-                "${MyText.informationTextKg}",
+                "${MyText.informationTextKg}".tr,
                 style: MyTextStyle.homeTitle,
                 trimLines: 5,
                 colorClickableText: MyColors.myRed,

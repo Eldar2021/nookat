@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -22,8 +20,8 @@ class AddAdvertController extends GetxController {
   Rx<TextEditingController> address = TextEditingController().obs;
   Rx<TextEditingController> website = TextEditingController().obs;
   Rx<TextEditingController> email = TextEditingController().obs;
-  Rx<TextEditingController> extraCategory = TextEditingController().obs;
-  RxString category = "".obs;
+  Rx<TextEditingController> category = TextEditingController().obs;
+  RxString type = "".obs;
   RxString collection = "".obs;
   RxList<Asset> images = <Asset>[].obs;
   List<String> photos = <String>[].obs;
@@ -97,17 +95,16 @@ class AddAdvertController extends GetxController {
 
   Future<void> addAdvert() async {
     await uploadImages(images);
-    if (category.value != "") {
-      if (category.value == "Кабар") {
+    if (type.value != "") {
+      if (type.value == "Кабар") {
         collection.value = "news";
-      } else if (category.value == "Шашылыш сатуу") {
+      } else if (type.value == "Шашылыш сатуу") {
         collection.value = "urgent";
       } else {
         collection.value = "advert";
       }
     } else {
       collection.value = "advert";
-      category.value = extraCategory.value.text;
     }
     try {
       print("form is valid");
@@ -126,7 +123,7 @@ class AddAdvertController extends GetxController {
         address: address.value.text,
         website: website.value.text,
         email: email.value.text,
-        advertCategory: category.value,
+        advertCategory: category.value.text,
       );
       await AddToFirebase().addAdvertToFire(newAdvert, collection.value);
     } catch (e) {
@@ -145,9 +142,9 @@ class AddAdvertController extends GetxController {
     address.value.text = "";
     website.value.text = "";
     email.value.text = "";
-    category.value = "";
+    type.value = "";
     photos = [];
-    extraCategory.value.text = "";
+    category.value.text = "";
     collection.value = "";
     images.value = [];
     resultList = [];

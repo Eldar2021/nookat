@@ -1,30 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:nookat/models/admin.dart';
 import 'package:nookat/models/advert.dart';
-import 'package:nookat/models/advert_category.dart';
 import 'package:nookat/models/information_about_app.dart';
 
 class AddToFirebase {
-  Future<void> addCategoryToFirebase(AdvertCategory advertCategory) async {
-    CollectionReference<Map<String, dynamic>> categories =
-        FirebaseFirestore.instance.collection('category');
-    try {
-      return categories
-          .add(
-            {
-              'title': advertCategory.title,
-              'descriptions': advertCategory.description,
-              'photos': advertCategory.icon,
-            },
-          )
-          .then((value) => print("User Added"))
-          .catchError(
-            (error) => print("Failed to add user: $error"),
-          );
-    } catch (e) {
-      print("add Advert To FireBase $e");
-    }
-  }
 
   Future<void> addInformationAppToFirebase(InformationAboutApp informationAboutApp) async {
     CollectionReference<Map<String, dynamic>> categories =

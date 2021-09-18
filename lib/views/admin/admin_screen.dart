@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:nookat/constants/color.dart';
 import 'package:nookat/models/admin.dart';
-import 'package:nookat/views/admin/ada_category_screen.dart';
 import 'package:nookat/views/admin/add_admin_screen.dart';
 import 'package:nookat/views/admin/add_advert_for_admin_screen.dart';
 import 'package:nookat/views/admin/add_information_screen.dart';
@@ -56,7 +55,6 @@ class AdminScreen extends StatelessWidget {
             colors:const [Colors.deepPurple, Colors.yellowAccent],
             text: "Категория беруу",
             function: () {
-              Get.to(AddCategoryScreen());
             },
           ),
           AdminMenu(
