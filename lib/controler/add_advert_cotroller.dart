@@ -55,6 +55,7 @@ class AddAdvertController extends GetxController {
   }
 
   Future<List<String>> uploadImages(List<Asset> _images) async {
+    //FirebaseMessaging.instance.getToken();
     await Future.wait(
       _images.map(
         ((_image) async {
@@ -78,7 +79,7 @@ class AddAdvertController extends GetxController {
   }
 
   Future<void> toFire()async {
-    HomeController homeController = Get.put(HomeController());
+    HomeController homeController = Get.find();
     Get.defaultDialog(
         barrierDismissible: false,
         onWillPop: () async=>false,

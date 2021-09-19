@@ -49,7 +49,7 @@ class AddAdvertScreen extends StatelessWidget {
           ),
           Row(
             children: [
-              Text("Манилүү".tr, style: MyTextStyle.settingItemTextStyle),
+              Text("Манилүү".tr, style: MyTextStyle.settingTextStyle),
             ],
           ),
           ReadMoreText(
@@ -121,7 +121,7 @@ class AddAdvertScreen extends StatelessWidget {
           ),
           Row(
             children: [
-              Text("Манилүү эмес".tr, style: MyTextStyle.settingItemTextStyle),
+              Text("Манилүү эмес".tr, style: MyTextStyle.settingTextStyle),
             ],
           ),
           ReadMoreText(
