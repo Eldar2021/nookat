@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -36,11 +37,12 @@ class AdvertImages extends StatelessWidget {
                 child: Container(
                   width: double.infinity,
                   height: Get.width / 2,
-                  decoration: BoxDecoration(
-                      image: DecorationImage(
-                    image: NetworkImage(images![itemIndex]),
-                    fit: BoxFit.cover,
-                  )),
+                  // decoration: BoxDecoration(
+                  //     image: DecorationImage(
+                  //   image: NetworkImage(images![itemIndex]),
+                  //   fit: BoxFit.cover,
+                  // )),
+                  child: CachedNetworkImage(imageUrl: images![itemIndex]),
                 ),
               );
             },
@@ -60,11 +62,7 @@ class AdvertImages extends StatelessWidget {
                       i: index,
                     ));
                   },
-                  child: Image.network(
-                    images![index],
-                    width: 70,
-                    height: 70,
-                  ),
+                  child: CachedNetworkImage(imageUrl: images![index]),
                 );
               },
             ),

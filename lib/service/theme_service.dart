@@ -13,16 +13,16 @@ class ThemeService {
   bool _loadThemeFromBox() => _box.read(_key) ?? false;
 
   /// Save isDarkMode to local storage
-  _saveThemeToBox1(bool isDarkMode) => _box.write(_key, isDarkMode);
+  saveThemeToBox1(bool isDarkMode) => _box.write(_key, isDarkMode);
 
   /// Switch theme and save to local storage
   void darkTheme() {
     Get.changeTheme(ThemeData.dark());
-    _saveThemeToBox1(true);
+    saveThemeToBox1(true);
   }
 
   void lightTheme() {
     Get.changeTheme(ThemeData.light());
-    _saveThemeToBox1(false);
+    saveThemeToBox1(false);
   }
 }

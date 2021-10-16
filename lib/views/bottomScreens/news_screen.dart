@@ -13,7 +13,7 @@ class NewsScreen extends StatelessWidget {
       child: Column(
         children: [
           Container(
-            margin: const EdgeInsets.only(top: 25, bottom: 15),
+            margin: const EdgeInsets.only(top: 0, bottom: 15),
             child: Text(
               "Кабарлар".tr,
               style: MyTextStyle.homeTheme,

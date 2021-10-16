@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -8,6 +9,7 @@ import 'package:nookat/constants/text_style.dart';
 import 'package:nookat/models/advert.dart';
 import 'package:nookat/service/get_url_service.dart';
 import 'package:nookat/views/advert_detail_screen.dart';
+import 'package:progressive_image/progressive_image.dart';
 
 class AdvertSteamBuilder extends StatelessWidget {
   const AdvertSteamBuilder({
@@ -127,10 +129,13 @@ class AdvertCard extends StatelessWidget {
                       child: advert.photos!.isEmpty
                           ? Image.asset(
                               "assets/image/nookat.jpeg",
-                              fit: BoxFit.cover,
+                              fit: BoxFit.fill,
                             )
-                          : Image.network(
-                              advert.photos![0],
+                          : CachedNetworkImage(
+                              imageUrl: advert.photos![0],
+                              placeholder: (context, url) => Image.asset("assets/image/logo.png"),
+                              errorWidget: (context, url, error) =>
+                                  Image.asset("assets/image/logo.png"),
                               fit: BoxFit.cover,
                             ),
                     ),
@@ -154,15 +159,20 @@ class AdvertCard extends StatelessWidget {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Text(
-                                "${advert.user}    ",
-                                style: MyTextStyle.homeUser,
+                              Expanded(
+                                child: Text(
+                                  "${advert.user}",
+                                  overflow: TextOverflow.ellipsis,
+                                  style: MyTextStyle.homeUser,
+                                ),
                               ),
                               advert.data != null
-                                  ? Text(
-                                      advert.data!,
-                                      overflow: TextOverflow.ellipsis,
-                                      style: MyTextStyle.homeData,
+                                  ? Expanded(
+                                      child: Text(
+                                        advert.data!,
+                                        overflow: TextOverflow.ellipsis,
+                                        style: MyTextStyle.homeData,
+                                      ),
                                     )
                                   : Container(),
                             ],
@@ -302,9 +312,13 @@ class NewsCard extends StatelessWidget {
                             height: Get.width / 2,
                             fit: BoxFit.cover,
                           )
-                        : Image.network(
-                            advert.photos![0],
+                        : ProgressiveImage(
+                            placeholder: AssetImage("assets/image/logo.png"),
+                            image: NetworkImage(advert.photos![0]),
+                            thumbnail: NetworkImage(advert.photos![0]),
                             fit: BoxFit.cover,
+                            width: 1000,
+                            height: 1000,
                           ),
                   ),
                 ),
@@ -321,10 +335,12 @@ class NewsCard extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text(
-                            advert.user,
-                            overflow: TextOverflow.ellipsis,
-                            style: MyTextStyle.homeUser,
+                          Expanded(
+                            child: Text(
+                              advert.user,
+                              overflow: TextOverflow.ellipsis,
+                              style: MyTextStyle.homeUser,
+                            ),
                           ),
                           Text(
                             "${advert.data}",

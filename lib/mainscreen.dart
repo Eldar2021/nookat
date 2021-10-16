@@ -31,16 +31,11 @@ class MainScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: MyColors.primaryColor,
-        title:  ShaderMask(
-          shaderCallback: (Rect bounds) {
-            return RadialGradient(
-              center: Alignment.topLeft,
-              radius: 2.0,
-              colors: <Color>[Colors.yellow, Colors.deepOrange.shade900],
-              tileMode: TileMode.mirror,
-            ).createShader(bounds);
-          },
-          child: Text('Ноокат жарнама', style: TextStyle(fontSize: 32),),
+        title: Expanded(
+          child: Text(
+            'Ноокат жарнама',
+            style: TextStyle(fontSize:30),
+          ),
         ),
         centerTitle: true,
       ),

@@ -7,7 +7,6 @@ import 'package:multi_image_picker/multi_image_picker.dart';
 import 'package:nookat/constants/color.dart';
 import 'package:nookat/constants/text_style.dart';
 import 'package:nookat/controler/add_advert_cotroller.dart';
-import 'package:nookat/controler/read_category_controller.dart';
 import 'package:nookat/widgets/type_widget.dart';
 import 'package:nookat/widgets/add_advert_widgets.dart';
 import 'package:nookat/widgets/category_dropdown_widget.dart';
@@ -16,7 +15,6 @@ import 'package:readmore/readmore.dart';
 class AddAdvertScreen extends StatelessWidget {
   final AddAdvertController addAdvertController = Get.put(AddAdvertController());
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-  final ReadController readController = Get.put(ReadController());
 
   Widget buildGridView() {
     return Obx(

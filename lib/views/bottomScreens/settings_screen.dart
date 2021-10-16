@@ -8,7 +8,7 @@ import 'package:nookat/service/theme_service.dart';
 import 'package:nookat/widgets/setting_widget.dart';
 
 class SettingsScreen extends StatelessWidget {
-  final SettingsController settingsController = Get.find();
+  final SettingsController settingsController = Get.put(SettingsController());
 
   @override
   Widget build(BuildContext context) {
@@ -113,7 +113,7 @@ class SettingsScreen extends StatelessWidget {
               Expanded(
                 child: MySettingsContainer(
                   child: Image.asset(
-                    "assets/image/light.jpg",
+                    "assets/image/light.jpeg",
                     width: Get.width / 3,
                     height: Get.width / 2,
                     fit: BoxFit.cover,
@@ -121,7 +121,7 @@ class SettingsScreen extends StatelessWidget {
                   padding: const EdgeInsets.all(10),
                   onTab: () {
                     Get.changeTheme(ThemeData.light());
-                    ThemeService().lightTheme();
+                    ThemeService().saveThemeToBox1(false);
                   },
                 ),
               ),
@@ -137,7 +137,7 @@ class SettingsScreen extends StatelessWidget {
                   padding: EdgeInsets.all(10),
                   onTab: () {
                     Get.changeTheme(ThemeData.dark());
-                    ThemeService().darkTheme();
+                    ThemeService().saveThemeToBox1(true);
                   },
                 ),
               ),

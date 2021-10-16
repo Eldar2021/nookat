@@ -81,19 +81,23 @@ class CategoryDetailStreamFor extends StatelessWidget {
             listAdverts.add(advert);
           }
         }
-        return GridView.builder(
-          shrinkWrap: true,
-          primary: false,
-          gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-            maxCrossAxisExtent: Get.width / 2, //200,
-            childAspectRatio: 2.0 / 3.5,
-          ),
-          itemCount: listAdverts.length,
-          itemBuilder: (context, index) {
-            Advert advert = listAdverts[index];
-            return AdvertCard(advert: advert);
-          },
-        );
+        if(listAdverts.length<1){
+          return SizedBox(height: 7);
+        }else{
+          return GridView.builder(
+            shrinkWrap: true,
+            primary: false,
+            gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+              maxCrossAxisExtent: Get.width / 2, //200,
+              childAspectRatio: 2.0 / 3.5,
+            ),
+            itemCount: listAdverts.length,
+            itemBuilder: (context, index) {
+              Advert advert = listAdverts[index];
+              return AdvertCard(advert: advert);
+            },
+          );
+        }
       },
     );
   }

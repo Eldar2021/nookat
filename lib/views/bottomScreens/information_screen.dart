@@ -16,7 +16,7 @@ class InformationScreen extends StatelessWidget {
     return Column(
       children: [
         Container(
-          margin: const EdgeInsets.only(top: 25, bottom: 15),
+          margin: const EdgeInsets.only(top: 0, bottom: 15),
           child: Text(
             "Колдонуу инструкциясы".tr,
             style: MyTextStyle.homeTheme,

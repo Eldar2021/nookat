@@ -9,7 +9,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:90911443493:android:739b230668f0591aa60dcc",
         "android_client_info": {
-          "package_name": "com.example.nookat"
+          "package_name": "com.nookat.nookat"
         }
       },
       "oauth_client": [
@@ -17,7 +17,7 @@
           "client_id": "90911443493-s5eol34chgviri1d9fm95k45uca0o079.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.example.nookat",
+            "package_name": "com.nookat.nookat",
             "certificate_hash": "b61141420a466b3b6c6a99dea800e7c60f18e835"
           }
         },

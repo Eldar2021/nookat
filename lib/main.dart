@@ -15,6 +15,10 @@ import 'package:nookat/service/translations.dart';
 import 'package:nookat/views/first/first_screen.dart';
 import 'controler/settings_controller.dart';
 
+// this is my second application my first application is Ноокат жарнама
+// бул менин экинчи тиркемем биринчи тиркемем Ноокат жарнама болчу
+// анан жаны версиясын чыгарйын десем sh1 сертификат номерин жоготуп алдым
+
 Future<void> _messageHandler(RemoteMessage message) async {
   print('background message ${message.notification!.body}');
   Get.snackbar(
@@ -43,6 +47,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       title: 'Flutter Demo',
       theme: Themes.light,
+      debugShowCheckedModeBanner: false,
       themeMode: ThemeService().theme,
       darkTheme: Themes.dark,
       locale: settingsController.langRead.read(settingsController.key) == 1

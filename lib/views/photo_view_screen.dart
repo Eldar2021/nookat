@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:nookat/constants/color.dart';
@@ -27,9 +28,7 @@ class PhotoViewScreen extends StatelessWidget {
           itemCount: images!.length,
           builder: (context, index) {
             return PhotoViewGalleryPageOptions(
-              imageProvider: NetworkImage(
-                images![index],
-              ),
+              imageProvider: CachedNetworkImageProvider(images![index],),
               minScale: PhotoViewComputedScale.contained * 0.9,
               maxScale: PhotoViewComputedScale.covered * 3,
             );

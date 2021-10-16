@@ -79,7 +79,7 @@ class AddAdvertController extends GetxController {
   }
 
   Future<void> toFire()async {
-    HomeController homeController = Get.find();
+    HomeController homeController = Get.put(HomeController());
     Get.defaultDialog(
         barrierDismissible: false,
         onWillPop: () async=>false,
@@ -87,11 +87,12 @@ class AddAdvertController extends GetxController {
           child: Center(
             child: CircularProgressIndicator(),
           ),
-        )
+        ),
     );
     await addAdvert();
     Get.back();
     homeController.backPage();
+    //Get.back();
   }
 
   Future<void> addAdvert() async {
